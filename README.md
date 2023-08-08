@@ -1,9 +1,11 @@
 <h1 align= 'center'>Nail Design Schedule</h1 >
 
 ## 💻 Projeto
-<p > 
-Projeto de uma aplicação para agendamento de clientes de um salão de design de unha 
-</p>
+
+
+Atividade do curso de Desenvolvimento Full Stack - ITalents [https://italents.com.br/](https://italents.com.br/) 
+<p>Projeto: aplicação para agendamento de clientes de um salão de design de unha </p> 
+
 
 ##  🔧 Tecnologias
 - Html
