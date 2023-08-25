@@ -5,75 +5,104 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/global-style.css">
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <title>Login</title>
 </head>
 
 <body>
-  <header>
-    <img src="https://simpleicon.com/wp-content/uploads/picture.png" alt="Logotipo da empresa">
-    <nav>
-      <ul>
-        <li>Home</li>
-        <li>Agenda</li>
-        <li>Serviços</li>
-        <li>Sobre</li>
-        <li>
-          <img src="https://cdn-icons-png.flaticon.com/512/6522/6522516.png" alt="Imagem do perfil">
-        </li>
-      </ul>
-    </nav>
-  </header>
+  <div class="container">
+    <div class="wrapper">
 
-  <main>
-    <h1>Bora agendar!!!</h1>
-    <section>
-      <select name="" id="">
-        <option value=""> Selecione o serviço que deseja</option>
-        <option value="serviço1"> Serviço 1 <span>R$ <span>0,00</span></span></option>
-        <option value="serviço1"> Serviço 2 <span>R$ <span>0,00</span></span></option>
-        <option value="serviço1"> Serviço 3 <span>R$ <span>0,00</span></span></option>
-        <option value="serviço1"> Serviço 4 <span>R$ <span>0,00</span></span></option>
-        <option value="serviço1"> Serviço 5 <span>R$ <span>0,00</span></span></option>
-        <option value="serviço1"> Serviço 6 <span>R$ <span>0,00</span></span></option>
-      </select>
-      <ol>
-        <li>
-          Clique no calendário e consulte as datas e horários disponíveis
-        </li>
-        <li>
-          Selecione a data e horário da sua preferência e clique em ‘Ok’
-        </li>
-      </ol>
-      <i class="ph ph-calendar"></i>
-    </section>
+      <header class="layout-header">
+        <div class="layout-wrapper">
+          <div class="logo">
+            <img src="./assets/Logotipo Nome Minimalista Branco e Preto.png" alt="">
+          </div>
+          <nav class="menu">
+            <ul class="menu-list">
+              <li class="menu-link"> <a href="./home.html">Home</a> </li>
+              <li class="menu-link"> <a href="./scheduling.html">Agenda</a> </li>
+              <li class="menu-link"> <a href="./services.html">Serviços</a> </li>
+              <li class="menu-link"> <a href="./about.html">Sobre</a> </li>
+              <li class="menu-profile"><i class="ph ph-user-circle"></i>
+              </li>
+              <li class="menu-list-mobile"> <i class="ph ph-list"></i></li>
+            </ul>
+          </nav>
+          <!--inicio menu suspenso para mobile -->
+          <nav class="dropdown-menu">
+            <span><button class="close-button"><i class="ph ph-x"></i></button></span>
+            <ul class="menu-list">
+              <li class="menu-link"><span class=""> <a href="./home.html">Home</a> </span></li>
+              <li class="menu-link"><span> <a href="./scheduling.html">Agenda</a> </span> </li>
+              <li class="menu-link"><span> <a href="./services.html">Serviços</a> </span> </li>
+              <li class="menu-link"><span> <a href="./about.html">Sobre</a> </span> </li>
+            </ul>
+          </nav>
+          <!--fim menu suspenso para mobile -->
 
-    <section>
-      <div>
-        <h3>Selecione o método de pagamento:</h3>
-        <input type="radio" name="pay-method" id="cash">
-        <label for="cash">Dinheiro</label>
-
-        <input type="radio" name="pay-method" id="card">
-        <label for="card">Cartão de crédito/débito</label>
-
-        <input type="radio" name="pay-method" id="pix">
-        <label for="pix">Pix</label>
-      </div>
-      <div>
-        <button>Agendar</button>
-        <button>Alterar agendamento*</button>
-        <p>* Alteração de agendamento deve ser feito com no mínimo 48h de antecedência.</p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <i class="ph ph-instagram-logo"></i>
-    <i class="ph ph-facebook-logo"></i>
-    <i class="ph ph-whatsapp-logo"></i>
-    <i class="ph ph-youtube-logo"></i>
-  </footer>
+        </div>
+      </header>
+    
+      <main class="main-content">
+        <h1>Bora agendar!!!</h1>
+        <section>
+          <select name="" id="">
+            <option value=""> Selecione o serviço que deseja</option>
+            <option value="serviço1"> Serviço 1 <span>R$ <span>0,00</span></span></option>
+            <option value="serviço1"> Serviço 2 <span>R$ <span>0,00</span></span></option>
+            <option value="serviço1"> Serviço 3 <span>R$ <span>0,00</span></span></option>
+            <option value="serviço1"> Serviço 4 <span>R$ <span>0,00</span></span></option>
+            <option value="serviço1"> Serviço 5 <span>R$ <span>0,00</span></span></option>
+            <option value="serviço1"> Serviço 6 <span>R$ <span>0,00</span></span></option>
+          </select>
+          <ol>
+            <li>
+              Clique no calendário e consulte as datas e horários disponíveis
+            </li>
+            <li>
+              Selecione a data e horário da sua preferência e clique em ‘Ok’
+            </li>
+          </ol>
+          <i class="ph ph-calendar"></i>
+        </section>
+    
+        <section>
+          <div>
+            <h3>Selecione o método de pagamento:</h3>
+            <input type="radio" name="pay-method" id="cash">
+            <label for="cash">Dinheiro</label>
+    
+            <input type="radio" name="pay-method" id="card">
+            <label for="card">Cartão de crédito/débito</label>
+    
+            <input type="radio" name="pay-method" id="pix">
+            <label for="pix">Pix</label>
+          </div>
+          <div>
+            <button>Agendar</button>
+            <button>Alterar agendamento*</button>
+            <p>* Alteração de agendamento deve ser feito com no mínimo 48h de antecedência.</p>
+          </div>
+        </section>
+      </main>
+    
+      <footer>
+        <div class="content-footer">
+          <div class="copyright">
+            <span>&copy;</span> Janaina Costa
+          </div>
+          <div class="social-media">
+            <a href="https://www.instagram.com/"  target="_blank"> <i class="ph ph-instagram-logo"></i></a>
+            <a href="https://www.facebook.com/" target="_blank"> <i class="ph ph-facebook-logo"></i></a>
+            <a href="" target="_blank"> <i class="ph ph-whatsapp-logo"></i></a>
+            <a href="https://www.youtube.com/" target="_blank"> <i class="ph ph-youtube-logo"></i></a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
 </body>
 
 </html>

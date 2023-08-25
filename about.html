@@ -5,64 +5,92 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/global-style.css">
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <title>Sobre</title>
 </head>
 
 <body>
-  <header>
-    <img src="https://simpleicon.com/wp-content/uploads/picture.png" alt="Logotipo da empresa">
-    <nav>
-      <ul>
-        <li>Home</li>
-        <li>Agenda</li>
-        <li>Serviços</li>
-        <li>Sobre</li>
-        <li> 
-          <img src="https://cdn-icons-png.flaticon.com/512/6522/6522516.png" alt="Imagem do perfil">
-        </li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <h1>Esta é a nossa história</h1>
-
-    <section>
-      <div>
-        <h2>De onde viemos?</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae ipsam reiciendis sint quidem nisi iure eos
-        consectetur, eaque enim maxime hic? Doloremque nulla consequuntur fuga distinctio quia obcaecati ipsa tempora
-        sint accusantium nobis possimus ratione, dolorem vero ipsum esse laborum vel ea natus perspiciatis?
-
-        Exercitationem pariatur illum repellendus aspernatur eaque saepe tempora mollitia voluptatibus inventore
-        obcaecati neque consequatur nam maxime molestias facilis sint vitae ut, aut placeat aliquam! A libero esse et
-        odio harum temporibus inventore cum sint, ducimus laudantium accusantium quam rem! Cumque dolorem voluptates
-        iure minima cupiditate, accusamus ut numquam asperiores molestiae perferendis sed laborum. Voluptas, consequatur
-        reiciendis.
-      </p>
-
-      </div>
-      <div>
-        <h2>Onde queremos chegar?</h2>
+  <div class="container">
+    <div class="wrapper">
+      <header class="layout-header">
+        <div class="layout-wrapper">
+          <div class="logo">
+            <img src="./assets/Logotipo Nome Minimalista Branco e Preto.png" alt="">
+          </div>
+          <nav class="menu">
+            <ul class="menu-list">
+              <li class="menu-link"> <a href="./home.html">Home</a> </li>
+              <li class="menu-link"> <a href="./scheduling.html">Agenda</a> </li>
+              <li class="menu-link"> <a href="./services.html">Serviços</a> </li>
+              <li class="menu-link"> <a href="./about.html">Sobre</a> </li>
+              <li class="menu-profile"><i class="ph ph-user-circle"></i>
+              </li>
+              <li class="menu-list-mobile"> <i class="ph ph-list"></i></li>
+            </ul>
+          </nav>
+          <!--inicio menu suspenso para mobile -->
+          <nav class="dropdown-menu">
+            <span><button class="close-button"><i class="ph ph-x"></i></button></span>
+            <ul class="menu-list">
+              <li class="menu-link"><span class=""> <a href="./home.html">Home</a> </span></li>
+              <li class="menu-link"><span> <a href="./scheduling.html">Agenda</a> </span> </li>
+              <li class="menu-link"><span> <a href="./services.html">Serviços</a> </span> </li>
+              <li class="menu-link"><span> <a href="./about.html">Sobre</a> </span> </li>
+            </ul>
+          </nav>
+          <!--fim menu suspenso para mobile -->
+    
+        </div>
+      </header>
+      <main class="main-content">
+        <h1>Esta é a nossa história</h1>
+    
+        <section>
+          <div>
+            <h2>De onde viemos?</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate temporibus ut deserunt ipsam, eius aut
-            labore qui veniam laboriosam cumque ipsum excepturi doloremque quibusdam quis modi atque non perspiciatis
-            error iste saepe est odit nostrum! Dolore, fuga sed culpa voluptatem earum a animi repellat iusto ipsa,
-            consequatur blanditiis quae placeat facilis aliquid ducimus cumque nam minima itaque porro voluptatibus
-            velit officiis! Veritatis amet omnis labore consequatur eius blanditiis architecto recusandae magni iusto?
-            Totam quidem aspernatur autem aliquid sit facere suscipit.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae ipsam reiciendis sint quidem nisi iure eos
+            consectetur, eaque enim maxime hic? Doloremque nulla consequuntur fuga distinctio quia obcaecati ipsa tempora
+            sint accusantium nobis possimus ratione, dolorem vero ipsum esse laborum vel ea natus perspiciatis?
+    
+            Exercitationem pariatur illum repellendus aspernatur eaque saepe tempora mollitia voluptatibus inventore
+            obcaecati neque consequatur nam maxime molestias facilis sint vitae ut, aut placeat aliquam! A libero esse et
+            odio harum temporibus inventore cum sint, ducimus laudantium accusantium quam rem! Cumque dolorem voluptates
+            iure minima cupiditate, accusamus ut numquam asperiores molestiae perferendis sed laborum. Voluptas, consequatur
+            reiciendis.
           </p>
-      </div>
-    </section>
-   
-  </main>
-  <footer>
-    <i class="ph ph-instagram-logo"></i>
-    <i class="ph ph-facebook-logo"></i>
-    <i class="ph ph-whatsapp-logo"></i>
-    <i class="ph ph-youtube-logo"></i>
-  </footer>
+    
+          </div>
+          <div>
+            <h2>Onde queremos chegar?</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate temporibus ut deserunt ipsam, eius aut
+                labore qui veniam laboriosam cumque ipsum excepturi doloremque quibusdam quis modi atque non perspiciatis
+                error iste saepe est odit nostrum! Dolore, fuga sed culpa voluptatem earum a animi repellat iusto ipsa,
+                consequatur blanditiis quae placeat facilis aliquid ducimus cumque nam minima itaque porro voluptatibus
+                velit officiis! Veritatis amet omnis labore consequatur eius blanditiis architecto recusandae magni iusto?
+                Totam quidem aspernatur autem aliquid sit facere suscipit.
+              </p>
+          </div>
+        </section>
+       
+      </main>
+      <footer>
+        <div class="content-footer">
+          <div class="copyright">
+            <span>&copy;</span> Janaina Costa
+          </div>
+          <div class="social-media">
+            <a href="https://www.instagram.com/"  target="_blank"> <i class="ph ph-instagram-logo"></i></a>
+            <a href="https://www.facebook.com/" target="_blank"> <i class="ph ph-facebook-logo"></i></a>
+            <a href="" target="_blank"> <i class="ph ph-whatsapp-logo"></i></a>
+            <a href="https://www.youtube.com/" target="_blank"> <i class="ph ph-youtube-logo"></i></a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
 </body>
 
 </html>
