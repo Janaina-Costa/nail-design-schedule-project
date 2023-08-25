@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./styles/layout.css">
-  <link rel="stylesheet" href="./styles/home-style.css">
+  <link rel="stylesheet" href="/styles/home-style.css">
+<link rel="stylesheet" href="./styles/global-style.css">
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <title>Home</title>
 </head>
@@ -14,65 +14,90 @@
 <body>
 
   <div class="container">
-    <header class="layout-header">
-      <div class="wrapper">
-        <div class="logo">
-          <span class="logo-first-string">Nail Business</span>
+    <div class="wrapper">
+      <header class="layout-header">
+        <div class="layout-wrapper">
+          <div class="logo">
+            <span class="logo-first-string">Nail Business</span>
+          </div>
+          <nav class="menu">
+            <ul class="menu-list">
+              <li class="menu-link">Home</li>
+              <li class="menu-link">Agenda</li>
+              <li class="menu-link">Serviços</li>
+              <li class="menu-link">Sobre</li>
+              <li class="menu-profile"><i class="ph ph-user-circle"></i>
+              </li>
+              <li class="menu-list-mobile"> <i class="ph ph-list"></i></li>
+            </ul>
+          </nav>
         </div>
-        <nav class="menu">
-          <ul class="menu-list">
-            <li class="menu-link">Home</li>
-            <li class="menu-link">Agenda</li>
-            <li class="menu-link">Serviços</li>
-            <li class="menu-link">Sobre</li>
-            <li class="menu-profile"><i class="ph ph-user-circle"></i>
-            </li>
-            <li class="menu-list-mobile"> <i class="ph ph-list"></i></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-    <main>
-      <div class="slogan">
-        <h1>Seja sua melhor versão!</h1>
-      </div>
-      <section class="client-gallery">
-        <div class="wrapper-gallery-client">
-          <img src="./assets/nail-destac-1.jpg">
-        </div>
-      </section>
-      <section class="technical-gallery ">
-        <div class="slogan-tech">
-          <h2>Trabalhamos com as melhores técnicas, oferecemos o melhor serviço.</h2>
-        </div>
+      </header>
+      <main class="main-content">
+        
+        <section class="client-gallery">
+          <div class="slogan">
+            <h1>Seja sua melhor versão!</h1>
+          </div>
+          <div class="wrapper-gallery-client">
+            <img src="./assets/nail-destac-1.jpg">
+          </div>
 
-        <div class="wrapper-gallery-tech">
-          <figure>
-            <img src="https://simpleicon.com/wp-content/uploads/picture.png" alt="">
-            <figcaption>Serviço 1</figcaption>
-          </figure>
-          <figure>
-            <img src="https://simpleicon.com/wp-content/uploads/picture.png" alt="">
-            <figcaption>Serviço 2</figcaption>
-          </figure>
-          <figure>
-            <img src="https://simpleicon.com/wp-content/uploads/picture.png" alt="">
-            <figcaption>Serviço 2</figcaption>
-          </figure>
+        </section>
+        <section class="technical-gallery">
+          <div class="slogan-tech">
+            <h2>Trabalhamos com as melhores técnicas, oferecemos o melhor serviço.</h2>
+          </div>
+  
+          <div class="wrapper-gallery-tech">
+            <figure class="image-content">
+              <img src="./assets/fribra.jpg" alt="">
+              <figcaption class="caption">Fibra de Vidro</figcaption>
+            </figure>
+            <figure class="image-content">
+              <img src="./assets/gel.jpg" alt="">
+              <figcaption class="caption">Acrigel na Tip</figcaption>
+            </figure>
+            <figure class="image-content">
+              <img src="./assets/acrilico.jpg" alt="">
+              <figcaption class="caption">Acrílico</figcaption>
+            </figure>
+           
+            
+          </div>
+
+          <div class="wrapper-gallery-tech">
+            <figure class="image-content">
+              <img src="./assets/decoracao.jpg" alt="">
+              <figcaption class="caption">Decoração</figcaption>
+            </figure>
+            <figure class="image-content">
+              <img src="./assets/manutencao.jpg" alt="">
+              <figcaption class="caption">Manutenção</figcaption>
+            </figure>
+            <figure class="image-content">
+              <img src="./assets/manicuri2.jpg" alt="">
+              <figcaption class="caption">Acrílico</figcaption>
+            </figure>
+           
+            
+          </div>
+        </section>
+      </main>
+      <footer>
+        <div class="content-footer">
+          <div class="copyright">
+            <span>&copy;</span> Janaina Costa
+          </div>
+          <div class="social-media">
+            <a href=""> <i class="ph ph-instagram-logo"></i></a>
+            <a href=""> <i class="ph ph-facebook-logo"></i></a>
+            <a href=""> <i class="ph ph-whatsapp-logo"></i></a>
+            <a href=""> <i class="ph ph-youtube-logo"></i></a>
+          </div>
         </div>
-      </section>
-    </main>
-    <footer>
-      <div class="copyright">
-        <span>&copy;</span> Janaina Costa
-      </div>
-      <div class="social-media">
-        <a href=""> <i class="ph ph-instagram-logo"></i></a>
-        <a href=""> <i class="ph ph-facebook-logo"></i></a>
-        <a href=""> <i class="ph ph-whatsapp-logo"></i></a>
-        <a href=""> <i class="ph ph-youtube-logo"></i></a>
-      </div>
-    </footer>
+      </footer>
+    </div>
   </div>
 
 </body>
