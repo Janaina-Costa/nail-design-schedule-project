@@ -55,10 +55,10 @@
   position: relative;
   width: 100%;
   height: 100%;
-  height: 220px;
-  box-shadow: 9px 7px 13px -7px rgba(0,0,0,0.1);
-  border-radius: 8px;
+  height: 240px;
+  border-radius: 1rem;
   overflow: hidden;
+  box-shadow: 6px 10px 19px -8px rgba(0,0,0,1);
   background-color: black;
 }
 .image-content img:hover{
@@ -69,6 +69,7 @@
 
 .image-content img {
   width: 100%;
+  object-fit: cover;
   min-height: 100%;
   opacity: 0.66;
   cursor: pointer;
@@ -82,10 +83,42 @@
   left: 8px;
   letter-spacing: 1px;
   transition: all 0.4s;
+  border-bottom: 1px solid transparent;
+  font-weight: 700;
 }
 
 .image-content:hover .caption{
   color: #ffffff;
   font-weight: 700;
   bottom: 20px;
+  border-bottom: 1px solid var(--color-complement-4);
+  text-shadow: 4px 4px 6px rgba(0,0,0,0.6);
+}
+
+@media screen and (max-width:900px) {
+  .image-content{
+    height: 198px;
+  }
+  
+}
+
+@media screen and (max-width:800px) {
+  .wrapper-gallery-tech{
+    flex-direction: column;
+    align-items: center;
+  }
+  .image-content{
+   width: 70%;
+   min-height: 100%;
+   max-height:280px;
+  }
+  .slogan{
+    font-size: 100%;
+    text-align: center;
+  }
+  .slogan-tech{
+    font-size: 80%;
+    text-align: center;
+  }
+  
 }
