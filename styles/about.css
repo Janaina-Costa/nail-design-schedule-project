@@ -1,13 +1,19 @@
-.main-content {
-  background-image: url('../assets/foto1.png');
-  position: relative;
-  background-size: cover;
-  background-position: left;
-  background-repeat: no-repeat;
-  z-index: 2;
+.container {
+ background-image: url('../assets/foto1.png');
+ position: relative;
+ background-size: cover;
+ background-position: left;
+ background-repeat: no-repeat;
+ height: 100%;
+
 }
 
- .main-content::before {
+.wrapper {
+  background-color: transparent;
+  
+}
+
+.main-content::before {
   content: '';
   position: absolute;
   height: 100%;
@@ -15,21 +21,23 @@
   background: #ffffff;
   left: 0;
   opacity: .4;
-} 
+}
 
 .about-title {
   padding: 1rem;
   color: #ffffff;
-  text-shadow: 4px 2px 5px rgba(47,47,47,0.8);
+  text-shadow: 4px 2px 5px rgba(47, 47, 47, 0.8);
   margin-bottom: 0;
-  font-size:2.5rem ;
+  font-size: 2.5rem;
 }
 
 .about-wrapper {
   display: flex;
   flex-direction: column;
   z-index: 1;
+
 }
+
 .about-component {
   padding: 1rem;
   display: flex;
@@ -45,15 +53,12 @@
   color: var(--text-color);
   padding: 0 1rem;
   box-shadow: 2px 5px 22px -4px rgba(102, 102, 102, 1);
-  height: 314px;
+  min-height: 314px;
   border-radius: 8px;
- 
-  
-
-
 }
-.about-content:after{
-  position:absolute ;
+
+.about-content:after {
+  position: absolute;
   content: '';
   background-color: #ffffff;
   opacity: .4;
@@ -64,7 +69,8 @@
   border-radius: 8px;
 
 }
-.title-content{
+
+.title-content {
   width: 100%;
   z-index: 1;
   display: flex;
@@ -73,28 +79,56 @@
   margin-top: 1rem;
   gap: .5rem;
 }
-.about-content h2{
+
+.about-content h2 {
   letter-spacing: 2px;
 }
 
-.about-content h2 img{
+.about-content h2 img {
   width: 60px;
   height: 60px;
   object-fit: cover;
 }
 
-.about-content p{
+.about-content p {
   text-align: justify;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   text-transform: capitalize;
   font: message-box bold 1rem sans-serif;
   z-index: 1;
   overflow: hidden;
-  text-overflow: ellipsis;
   margin-top: 0;
+  line-height: 1.5rem;
+  color: var(--text-color-light);
 }
 
-.about-content:nth-child(even) .title-content{
-  justify-content:right;
-  
+.about-content:nth-child(even) .title-content {
+  justify-content: right;
+
+}
+
+@media screen and (min-height:654px) {
+
+  .about-content p,
+  .about-content h2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
+  }
+}
+
+@media screen and (max-width:671px) {
+  .about-title {
+    font-size: 1.5rem;
+  }
+
+  .about-content h2 {
+    font-size: 1rem;
+  }
+
+  .about-content p,
+  .about-content h2 {
+    font-size: .875rem;
+  }
 }
