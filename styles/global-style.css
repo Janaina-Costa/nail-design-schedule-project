@@ -10,6 +10,11 @@ body {
   color: var(--text-color);
 
 }
+body h1{
+  color: #ffffff;
+  text-shadow: 4px 2px 5px rgba(47, 47, 47, 0.8);
+}
+
 
 :root {
   --color-primary-0: #f855b4;
