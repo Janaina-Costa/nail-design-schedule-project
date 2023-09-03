@@ -3,9 +3,23 @@
 }
 
 .title {
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
+  display: flex;
+}
+
+.table-prices{
+  position: absolute;
+  text-decoration: none;
+  color: var(--color-complement-4);
+  font-weight: 900;
+  font-size: 1.2rem;
+  text-shadow: 4px 2px 5px rgba(22, 22, 22, 0.966);
+  bottom: 0;
+  right: 0;
+
 }
 
 .title h1 {
@@ -14,7 +28,7 @@
   text-align: center;
   padding: 2rem 0;
 }
-
+/*Seleção da técnica*/
 .select-content {
   display: flex;
   justify-content: center;
@@ -39,7 +53,39 @@
 .confirmation-area button:hover {
   background: var(--color-secondary-1-4);
 }
+/*------------------------------------------------------------------*/
 
+/*Campo de checkbox de serviços*/
+.container-service{
+  display: flex;
+  margin-top: 1.5rem;
+  width: 100%;
+  display: none;
+}
+
+.container-service .content-service p{
+  font-size: 1.25rem;
+  margin: 0px 0px 1rem;
+  font-weight: 600;
+}
+.container-service .content-service .checkbox-services {
+  display: flex;
+  gap: 1rem;
+  
+ }
+.container-service .content-service .checkbox-services input{
+ transform: scale(1.5);
+ 
+}
+.container-service .content-service .checkbox-services label{
+  font-size: 1.25rem;
+  
+ }
+.container-service .content-service p span{
+  font-weight: 400;
+}
+/*---------------------------------------*/
+/*Calendário*/
 .content-calendar {
   display: flex;
   align-items: center;
@@ -101,7 +147,9 @@
   border: 1px solid var(--color-complement-4);
 
 }
+/*-------------------------------------------*/
 
+/*Seleção de pagamento*/
 .payment-content {
   display: flex;
   flex-direction: column;
@@ -137,7 +185,9 @@
 .method-payment-content .input label {
   font-size: 1.25rem;
 }
+/*-----------------------------------------------*/
 
+/*Resumo do agendamento*/
 .payment-content .summary {
   display: flex;
   flex-direction: column;
@@ -167,7 +217,9 @@
 .payment-content .summary .label-summary .label-title {
   font-weight: 600;
 }
+/*----------------------------------------*/
 
+/*Área de confirmação do agendamento*/
 .confirmation-area {
   width: 100%;
   display: flex;
@@ -197,7 +249,7 @@
   margin-top: 2rem;
   margin-bottom: 4px;
 }
-
+/*---------------------------------------------------*/
 @media screen and (max-width:670px) {
   .title h1 {
     font-size: 2rem;
