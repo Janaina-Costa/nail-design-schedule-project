@@ -6,114 +6,145 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./styles/global-style.css">
+  <link rel="stylesheet" href="./styles/service-style.css">
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <title>Serviços</title>
 </head>
 
 <body>
   <div class="container">
-    <div class="wrapper">
-      <header class="layout-header">
-        <div class="layout-wrapper">
-          <div class="logo">
-            <img src="./assets/Logotipo Nome Minimalista Branco e Preto.png" alt="">
-          </div>
-          <nav class="menu">
-            <ul class="menu-list">
-              <li class="menu-link"> <a href="./home.html">Home</a> </li>
-              <li class="menu-link"> <a href="./scheduling.html">Agenda</a> </li>
-              <li class="menu-link"> <a href="./services.html">Serviços</a> </li>
-              <li class="menu-link"> <a href="./about.html">Sobre</a> </li>
-              <li class="menu-profile"><i class="ph ph-user-circle"></i>
-              </li>
-              <li class="menu-list-mobile"> <i class="ph ph-list"></i></li>
-            </ul>
-          </nav>
-          <!--inicio menu suspenso para mobile -->
-          <nav class="dropdown-menu">
-            <span><button class="close-button"><i class="ph ph-x"></i></button></span>
-            <ul class="menu-list">
-              <li class="menu-link"><span class=""> <a href="./home.html">Home</a> </span></li>
-              <li class="menu-link"><span> <a href="./scheduling.html">Agenda</a> </span> </li>
-              <li class="menu-link"><span> <a href="./services.html">Serviços</a> </span> </li>
-              <li class="menu-link"><span> <a href="./about.html">Sobre</a> </span> </li>
-            </ul>
-          </nav>
-          <!--fim menu suspenso para mobile -->
-
+    <header class="layout-header">
+      <div class="layout-wrapper">
+        <div class="logo">
+          <img src="./assets/Logotipo Nome Minimalista Branco e Preto.png" alt="">
         </div>
-      </header>
-    
+        <nav class="menu">
+          <ul class="menu-list">
+            <li class="menu-link"> <a href="./home.html">Home</a> </li>
+            <li class="menu-link"> <a href="./scheduling.html">Agenda</a> </li>
+            <li class="menu-link"> <a href="./services.html">Serviços</a> </li>
+            <li class="menu-link"> <a href="./about.html">Sobre</a> </li>
+            <li class="menu-profile"><i class="ph ph-user-circle"></i>
+            </li>
+            <li class="menu-list-mobile"> <i class="ph ph-list"></i></li>
+          </ul>
+        </nav>
+        <!--inicio menu suspenso para mobile -->
+        <nav class="dropdown-menu">
+          <span><button class="close-button"><i class="ph ph-x"></i></button></span>
+          <ul class="menu-list">
+            <li class="menu-link"><span class=""> <a href="./home.html">Home</a> </span></li>
+            <li class="menu-link"><span> <a href="./scheduling.html">Agenda</a> </span> </li>
+            <li class="menu-link"><span> <a href="./services.html">Serviços</a> </span> </li>
+            <li class="menu-link"><span> <a href="./about.html">Sobre</a> </span> </li>
+          </ul>
+        </nav>
+        <!--fim menu suspenso para mobile -->
+
+      </div>
+    </header>
+    <div class="wrapper">
       <main class="main-content">
-        <h1>Conheça nossos serviços !</h1>
+        <div class="title">
+          <h1>Conheça nossos serviços !</h1>
+        </div>
+
         <section>
-          <div id="service1">
-            <figure>
-              <figcaption>Serviço 1</figcaption>
-              <img src="https://simpleicon.com/wp-content/uploads/picture.png" alt="imagem do serviço 1">
-            </figure>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum perferendis iure sit natus alias minus nisi
-              mollitia sed, voluptate, vero iste? Dolor ullam reiciendis architecto, deserunt odio earum odit alias.</p>
+          <div class="container-services">
+            <div class="services service1">
+              <figure>
+                <img class="image-service" src="./assets/fribra.jpg" alt="imagem do serviço 1">
+              </figure>
+              <div class="content-service">
+                <figcaption>Fibra de vidro</figcaption>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum perferendis iure sit natus alias minus
+                  nisi
+                  mollitia sed, voluptate, vero iste? Dolor ullam reiciendis architecto, deserunt odio earum odit alias.
+                </p>
+              </div>
+            </div>
+  
+            <div class="services service2">
+              <figure>
+                <img class="image-service" src="./assets/gel.jpg" alt="imagem do serviço 2">
+              </figure>
+              <div class="content-service">
+                <figcaption>Serviço 2</figcaption>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum perferendis iure sit natus alias minus
+                  nisi
+                  mollitia sed, voluptate, vero iste? Dolor ullam reiciendis architecto, deserunt odio earum odit alias.
+                </p>
+              </div>
+            </div>
+  
+            <div class="services service3">
+              <figure>
+                <img class="image-service" src="./assets/acrilico.jpg" alt="imagem do serviço 2">
+              </figure>
+              <div class="content-service">
+                <figcaption>Serviço 3</figcaption>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum perferendis iure sit natus alias minus
+                  nisi
+                  mollitia sed, voluptate, vero iste? Dolor ullam reiciendis architecto, deserunt odio earum odit alias.
+                </p>
+              </div>
+  
+            </div>
+            <div class="services service4">
+              <figure>
+                <img class="image-service" src="./assets/decoracao.jpg" alt="imagem do serviço 3">
+              </figure>
+              <div class="content-service">
+                <figcaption>Serviço 3</figcaption>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum perferendis iure sit natus alias minus
+                  nisi
+                  mollitia sed, voluptate, vero iste? Dolor ullam reiciendis architecto, deserunt odio earum odit alias.
+                </p>
+              </div>
+            </div>
+            <div class="services service5">
+              <figure>
+                <img class="image-service" src="./assets/manutencao.jpg" alt="imagem do serviço 4">
+              </figure>
+              <div class="content-service">
+                <figcaption>Serviço 4</figcaption>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum perferendis iure sit natus alias minus
+                  nisi
+                  mollitia sed, voluptate, vero iste? Dolor ullam reiciendis architecto, deserunt odio earum odit alias.
+                </p>
+  
+              </div>
+            </div>
+            <div class="services service5">
+              <figure>
+                <img class="image-service" src="./assets/porcelana.jpg" alt="imagem do serviço 4">
+              </figure>
+              <div class="content-service">
+                <figcaption>Serviço 4</figcaption>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum perferendis iure sit natus alias minus
+                  nisi
+                  mollitia sed, voluptate, vero iste? Dolor ullam reiciendis architecto, deserunt odio earum odit alias.
+                </p>
+  
+              </div>
           </div>
-    
-          <div>
-            <figure>
-              <figcaption>Serviço 2</figcaption>
-              <img src="https://simpleicon.com/wp-content/uploads/picture.png" alt="imagem do serviço 2">
-            </figure>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum perferendis iure sit natus alias minus nisi
-              mollitia sed, voluptate, vero iste? Dolor ullam reiciendis architecto, deserunt odio earum odit alias.</p>
-          </div>
-    
-          <div>
-            <figure>
-              <figcaption>Serviço 2</figcaption>
-              <img src="https://simpleicon.com/wp-content/uploads/picture.png" alt="imagem do serviço 2">
-            </figure>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum perferendis iure sit natus alias minus nisi
-              mollitia sed, voluptate, vero iste? Dolor ullam reiciendis architecto, deserunt odio earum odit alias.</p>
-          </div>
-          <div>
-            <figure>
-              <figcaption>Serviço 3</figcaption>
-              <img src="https://simpleicon.com/wp-content/uploads/picture.png" alt="imagem do serviço 3">
-            </figure>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum perferendis iure sit natus alias minus nisi
-              mollitia sed, voluptate, vero iste? Dolor ullam reiciendis architecto, deserunt odio earum odit alias.</p>
-          </div>
-          <div>
-            <figure>
-              <figcaption>Serviço 4</figcaption>
-              <img src="https://simpleicon.com/wp-content/uploads/picture.png" alt="imagem do serviço 4">
-            </figure>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum perferendis iure sit natus alias minus nisi
-              mollitia sed, voluptate, vero iste? Dolor ullam reiciendis architecto, deserunt odio earum odit alias.</p>
-          </div>
-          <div>
-            <figure>
-              <figcaption>Serviço 5</figcaption>
-              <img src="https://simpleicon.com/wp-content/uploads/picture.png" alt="imagem do serviço 5">
-            </figure>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum perferendis iure sit natus alias minus nisi
-              mollitia sed, voluptate, vero iste? Dolor ullam reiciendis architecto, deserunt odio earum odit alias.</p>
-          </div>
-    
+
         </section>
       </main>
-      <footer>
-        <div class="content-footer">
-          <div class="copyright">
-            <span>&copy;</span> Janaina Costa
-          </div>
-          <div class="social-media">
-            <a href="https://www.instagram.com/"  target="_blank"> <i class="ph ph-instagram-logo"></i></a>
-            <a href="https://www.facebook.com/" target="_blank"> <i class="ph ph-facebook-logo"></i></a>
-            <a href="" target="_blank"> <i class="ph ph-whatsapp-logo"></i></a>
-            <a href="https://www.youtube.com/" target="_blank"> <i class="ph ph-youtube-logo"></i></a>
-          </div>
-        </div>
-      </footer>
     </div>
+    <footer>
+      <div class="content-footer">
+        <div class="copyright">
+          <span>&copy;</span> Janaina Costa
+        </div>
+        <div class="social-media">
+          <a href="https://www.instagram.com/" target="_blank"> <i class="ph ph-instagram-logo"></i></a>
+          <a href="https://www.facebook.com/" target="_blank"> <i class="ph ph-facebook-logo"></i></a>
+          <a href="" target="_blank"> <i class="ph ph-whatsapp-logo"></i></a>
+          <a href="https://www.youtube.com/" target="_blank"> <i class="ph ph-youtube-logo"></i></a>
+        </div>
+      </div>
+    </footer>
   </div>
 </body>
 

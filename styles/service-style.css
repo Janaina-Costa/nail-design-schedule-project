@@ -1,0 +1,42 @@
+.title {
+  width: 100%;
+}
+
+.title h1 {
+  font-size: 4rem;
+}
+
+.container-services {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.container-services .services:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.services {
+  display: flex;
+}
+.services figure{
+  margin: 0;
+}
+
+.services .image-service {
+  object-fit: cover;
+  width: 24rem;
+  height: 20rem;
+  border-radius: 16px;
+}
+.container-services .content-service{
+  padding: 2rem;
+}
+
+.container-services .content-service figcaption{
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-color-light);
+  color: #ffffff;
+  text-shadow: 4px 2px 5px rgba(47, 47, 47, 0.8);
+}
