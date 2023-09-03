@@ -51,7 +51,6 @@
 
         <section class="select-container">
           <div class="select-content">
-
             <select name="" class="">
 
               <option value="" id="teste">Selecione o serviço que deseja</option>
@@ -64,38 +63,44 @@
             </select>
           </div>
           <div class="content-calendar">
-            <ol class="instructions">
-              <li>
-                Clique no calendário abaixo e consulte as datas e horários disponíveis
-              </li>
-              <li>
-                Selecione a data e horário da sua preferência e clique em ‘Ok’
-              </li>
-            </ol>
+
+            <p>
+              Selecione a data e horário da sua preferência:
+            </p>
+
             <div class="calendar">
-              <i class="ph ph-calendar"></i>
+              <div class="calendar-content calendar-date">
+                <i class="ph ph-calendar"></i>
+              <input type="date" name="" id="">
+              </div>
+              <div class="calendar-content calendar-time">
+                <i class="ph ph-clock"></i>
+                <input type="time" name="" id="">
+              </div>
             </div>
           </div>
         </section>
 
         <section>
           <div class="payment-content">
-            
+
             <div class="method-payment-content">
               <h3>Selecione o método de pagamento:</h3>
-              <div class="input">
-                <input type="radio" name="pay-method" id="cash">
-                <label for="cash">Dinheiro</label>
-              </div>
-
-              <div class="input">
-                <input type="radio" name="pay-method" id="card">
-                <label for="card">Cartão de crédito/débito</label>
-              </div>
-
-              <div class="input">
-                <input type="radio" name="pay-method" id="pix">
-                <label for="pix">Pix</label>
+              <div class="content-input">
+                <div class="input">
+                  <input type="radio" name="pay-method" id="cash">
+                  <label for="cash">Dinheiro</label>
+                </div>
+  
+                <div class="input">
+                  <input type="radio" name="pay-method" id="card">
+                  <label for="card">Cartão de crédito/débito</label>
+                </div>
+  
+                <div class="input">
+                  <input type="radio" name="pay-method" id="pix">
+                  <label for="pix">Pix</label>
+                </div>
               </div>
             </div>
 
@@ -106,34 +111,38 @@
                   <p class="label-title">Serviço:</p>
                   <p class="service-summary"> Acrigel</p>
                 </div>
-  
+
                 <div class="label-summary label-date">
                   <p class="label-title">Data/Hora:</p>
-                  <p class="date-summary"><span>01/01/2023</span> <span>13:00h</span></p>           
+                  <p class="date-summary"><span>01/01/2023</span> <span>13:00h</span></p>
                 </div>
-                
+
                 <div class="label-summary label-value">
                   <p class="label-title">Valor:</p>
-                  <p class="date-summary"><span>R$</span> <span>150,00</span></p>           
+                  <p class="date-summary"><span>R$</span> <span>150,00</span></p>
                 </div>
-  
+
                 <div class="label-summary label-payment-method">
                   <p class="label-title">Método de pagamento:</p>
-                  <p class="date-summary">Pix</p>           
+                  <p class="date-summary">Pix</p>
                 </div>
               </div>
-              
+
             </div>
 
 
           </div>
           <div class="
           confirmation-area">
-            <button id="confirm-schedule">Agendar</button>
+            <div class="content-button">
+              <button id="confirm-schedule">Agendar</button>
 
             <button id="change-schedule">Alterar agendamento*</button>
+            </div>
 
+           <div class="content-notice">
             <p class="notice">* Alteração de agendamento deve ser feito com no mínimo 48h de antecedência.</p>
+           </div>
           </div>
         </section>
       </main>

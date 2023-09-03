@@ -309,7 +309,7 @@ footer .social-media .ph:hover {
 
 }
 
-@media screen and (max-width:671px) {
+@media screen and (max-width:670px) {
   
   .logo img {
     width: 100%;
@@ -322,3 +322,4 @@ footer .social-media .ph:hover {
   }
 
 }
+
