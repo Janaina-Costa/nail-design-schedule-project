@@ -165,7 +165,7 @@ i.ph-user-circle {
   display: none;
 }
 
-/*menu suspenso mobile*/
+/*menu suspenso mobile - só será exibido quando estiver em tela de mobile*/
 .dropdown-menu {
   position: absolute;
   display: flex;

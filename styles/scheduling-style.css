@@ -58,7 +58,7 @@
 
 /*------------------------------------------------------------------*/
 
-/*Campo de checkbox de serviços*/
+/*Campo de checkbox de serviços - será exibido apenas quando o cliente selecionar o serviço*/
 .container-service {
   display: flex;
   margin-top: 1.5rem;
@@ -197,7 +197,7 @@
 
 /*-----------------------------------------------*/
 
-/*Resumo do agendamento*/
+/*Resumo do agendamento - será exibido apenas quando o cliente selecionar o serviço*/
 .payment-content .summary {
   display: flex;
   flex-direction: column;
