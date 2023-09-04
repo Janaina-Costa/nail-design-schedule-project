@@ -39,7 +39,8 @@
 }
 
 form {
-  width: 80%;
+  max-width: 100%;
+  width: 48rem;
 }
 
 .content-form {
@@ -102,4 +103,13 @@ form {
 
 .button-area button:hover{
   background: var(--color-secondary-1-4);
+}
+
+@media screen and (max-width:670px){
+  .title h1 {
+    font-size: 2rem;
+  }
+  .content-form label, .content-form input {
+    font-size: 1rem;
+  }
 }
