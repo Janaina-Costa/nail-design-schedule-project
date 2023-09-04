@@ -1,16 +1,14 @@
-.container {
- background-image: url('../assets/foto1.png');
- position: relative;
- background-size: cover;
- background-position: left;
- background-repeat: no-repeat;
- height: 100%;
 
-}
 
 .wrapper {
   background-color: transparent;
-  
+  background-image: url('../assets/foto1.png');
+  position: relative;
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+  height: 100%;
+
 }
 
 .main-content::before {
@@ -20,7 +18,7 @@
   width: 100%;
   background: #ffffff;
   left: 0;
-  opacity: .4;
+  opacity: .6;
 }
 
 .about-title {

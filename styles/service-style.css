@@ -18,8 +18,10 @@
 
 .services {
   display: flex;
+
 }
-.services figure{
+
+.services figure {
   margin: 0;
 }
 
@@ -29,11 +31,12 @@
   height: 20rem;
   border-radius: 16px;
 }
-.container-services .content-service{
+
+.container-services .content-service {
   padding: 2rem;
 }
 
-.container-services .content-service figcaption{
+.container-services .content-service figcaption {
   font-size: 1.5rem;
   font-weight: 800;
   color: var(--text-color-light);
