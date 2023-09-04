@@ -6,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./styles/global-style.css">
+  <link rel="stylesheet" href="./styles/login-register-styles/login-style.css">
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <title>Cadastro</title>
 </head>
 
 <body>
-<div class="container">
-  <div class="wrapper">
+  <div class="container">
     <header class="layout-header">
       <div class="layout-wrapper">
         <div class="logo">
@@ -43,46 +43,68 @@
 
       </div>
     </header>
-    
-    <main>
-      <h1>Cadastre-se aqui</h1>
-      <section>
-        <form action="">
-          <div>
-            <label for="name">
-              Nome
-            </label>
-            <input type="text" id="name" placeholder="Digite seu nome completo">
-            <label for="email">
-              Email
-            </label>
-            <input type="email" id="email" placeholder="Digite seu email">
-            <label for="phone">
-              Telefone
-            </label>
-            <input type="text" id="phone" placeholder="Digite seu telefone">
-            <label for="password">
-              Senha
-            </label>
-            <input type="password" id="password" placeholder="Digite sua senha">
-            <label for="password">
-              Confirmar senha
-            </label>
-            <input type="password" id="password" placeholder="Confirme sua senha">
-          </div>
-          <p>Já possui cadastrado ? <a href="#">clique aqui</a> e faça seu login.</p>
-          <button type="submit">Cadastrar</button>
-        </form>
-      </section>
-  
-    </main>
+    <div class="wrapper">
+      <main class="main-content">
+        <div class="title">
+          <h1>Cadastre-se aqui</h1>
+        </div>
+
+        <div class="main-form">
+          <section>
+            <form action="">
+              <div class="content-form">
+                <div class="input-content input-name">
+                  <label for="name">
+                    Nome
+                  </label>
+                  <input type="text" id="name" placeholder="Digite seu nome completo">
+                </div>
+
+                <div class="input-content input-email">
+                  <label for="email">
+                    Email
+                  </label>
+                  <input type="email" id="email" placeholder="Digite seu email">
+                </div>
+
+                <div class="input-content input-phone">
+                  <label for="phone">
+                    Telefone
+                  </label>
+                  <input type="text" id="phone" placeholder="Digite seu telefone">
+                </div>
+
+                <div class="input-content input-password">
+                  <label for="password">
+                    Senha
+                  </label>
+                  <input type="password" id="password" placeholder="Digite sua senha">
+                </div>
+
+                <div class="input-content input-confirme-mail">
+                  <label for="password">
+                    Confirmar senha
+                  </label>
+                  <input type="password" id="password" placeholder="Confirme sua senha">
+                </div>
+              </div>
+              <div class="button-area">
+                <p>Já possui cadastrado ? <a href="./login.html">clique aqui</a> e faça seu login.</p>
+                <button type="submit">Cadastrar</button>
+              </div>
+            </form>
+          </section>
+
+        </div>
+      </main>
+    </div>
     <footer>
       <div class="content-footer">
         <div class="copyright">
           <span>&copy;</span> Janaina Costa
         </div>
         <div class="social-media">
-          <a href="https://www.instagram.com/"  target="_blank"> <i class="ph ph-instagram-logo"></i></a>
+          <a href="https://www.instagram.com/" target="_blank"> <i class="ph ph-instagram-logo"></i></a>
           <a href="https://www.facebook.com/" target="_blank"> <i class="ph ph-facebook-logo"></i></a>
           <a href="" target="_blank"> <i class="ph ph-whatsapp-logo"></i></a>
           <a href="https://www.youtube.com/" target="_blank"> <i class="ph ph-youtube-logo"></i></a>
@@ -90,7 +112,6 @@
       </div>
     </footer>
   </div>
-</div>
 </body>
 
 </html>
