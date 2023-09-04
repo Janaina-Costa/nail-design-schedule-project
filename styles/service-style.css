@@ -3,7 +3,7 @@
 }
 
 .title h1 {
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 .container-services {
@@ -12,21 +12,24 @@
 
 }
 
+.services {
+  display: flex;
+  margin-bottom: 1rem;
+
+}
 .container-services .services:nth-child(even) {
   flex-direction: row-reverse;
 }
 
-.services {
-  display: flex;
-
-}
 
 .services figure {
   margin: 0;
+  padding: 0 1rem;
 }
 
 .services .image-service {
   object-fit: cover;
+  width: 100%;
   width: 24rem;
   height: 20rem;
   border-radius: 16px;
@@ -42,4 +45,20 @@
   color: var(--text-color-light);
   color: #ffffff;
   text-shadow: 4px 2px 5px rgba(47, 47, 47, 0.8);
+}
+
+@media screen and (max-width:671px){
+  .title h1{
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  .container-services .services{
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
+  }
+  .services .image-service{
+    
+  }
 }
