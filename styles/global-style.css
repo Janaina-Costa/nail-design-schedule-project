@@ -11,7 +11,8 @@ body {
 
 
 }
-body h1{
+
+body h1 {
   color: #ffffff;
   text-shadow: 4px 2px 5px rgba(47, 47, 47, 0.8);
 }
@@ -49,12 +50,14 @@ body h1{
   --text-color: #212020;
   --text-color-light: #484747;
 }
+
 /*Tooltip*/
-.pai{
+.pai {
   cursor: pointer;
   position: relative;
 }
-.tooltip{
+
+.tooltip {
   position: absolute;
   text-align: center;
   visibility: hidden;
@@ -62,7 +65,8 @@ body h1{
   color: #ffffff;
   padding: 5px 10px;
 }
-.tooltip::after{
+
+.tooltip::after {
   content: '';
   position: absolute;
   top: 25%;
@@ -71,11 +75,11 @@ body h1{
   width: 0;
   height: 0;
   border-right: 8px solid #000000b0;
-  border-top: 8px solid transparent ;
+  border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
 }
 
-.pai:hover .tooltip{
+.pai:hover .tooltip {
   visibility: visible;
   opacity: 0.9;
   top: 0px;
@@ -85,6 +89,7 @@ body h1{
 
 /**/
 .container {
+  position: relative;
   width: 100%;
 }
 
@@ -95,7 +100,7 @@ body h1{
   max-width: 1200px;
   margin: auto;
   background-color: #ffffff;
-  
+
 
 }
 
@@ -110,11 +115,11 @@ body h1{
   display: flex;
   padding: 1rem;
   background: linear-gradient(90deg, rgba(161, 58, 255) 0%, rgba(255, 82, 237) 49%, rgba(255, 46, 222) 100%);
-  
+
 
 }
 
-.layout-header::before{
+.layout-header::before {
   content: ' ';
   position: absolute;
   background-color: #141414;
@@ -126,6 +131,7 @@ body h1{
 
 
 }
+
 .layout-wrapper {
   width: 100%;
   display: flex;
@@ -165,13 +171,15 @@ body h1{
   font-size: 20px;
   z-index: 1;
 }
-.menu-list a{
+
+.menu-list a {
   text-decoration: none;
   color: #ffffff;
   letter-spacing: 4px;
 }
 
-.menu .menu-list .menu-link, a {
+.menu .menu-list .menu-link,
+a {
   border-radius: 4px;
   padding: 0.25rem;
   transition: background-color 1s;
@@ -205,20 +213,21 @@ i.ph-user-circle {
   background-color: #212020;
   opacity: 0.96;
   width: 100%;
-  height: min-content;
+  height: 100%;
   color: #ffff;
   padding: 1rem 0;
-  border-radius: 8px;
-  z-index: 3;
+  z-index: 999;
   display: none;
 }
 
-.dropdown-menu span {
+.dropdown-menu div {
   padding: 0 1rem;
-  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+
 }
 
-.dropdown-menu span .close-button {
+.dropdown-menu div .close-button {
   background-color: transparent;
   border: none;
   color: var(--color-complement-4);
@@ -229,6 +238,7 @@ i.ph-user-circle {
 .dropdown-menu .menu-list {
   flex-direction: column;
   padding: 0 1rem;
+
 }
 
 .dropdown-menu .menu-list .menu-link {
@@ -239,13 +249,12 @@ i.ph-user-circle {
   text-align: center;
   letter-spacing: 8px;
 }
-/**/
 
 .menu-link span {
   display: flex;
   flex-direction: column;
 
-  align-items: flex-start;
+  align-items: center;
 }
 
 .menu-link span:after {
@@ -264,6 +273,8 @@ i.ph-user-circle {
   visibility: visible;
   transform: scaleX(1);
 }
+
+/**/
 
 /*Footer*/
 
@@ -327,6 +338,7 @@ footer .social-media .ph:hover {
   .menu .menu-list .menu-link {
     font-size: 16px;
   }
+
   .menu .menu-list .menu-link {
     display: none;
   }
@@ -339,7 +351,7 @@ footer .social-media .ph:hover {
 }
 
 @media screen and (max-width:670px) {
-  
+
   .logo img {
     width: 100%;
   }
@@ -351,4 +363,3 @@ footer .social-media .ph:hover {
   }
 
 }
-
