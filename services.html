@@ -13,6 +13,17 @@
 
 <body>
   <div class="container">
+       <!--inicio menu suspenso para mobile -->
+       <nav class="dropdown-menu">
+        <div><button class="close-button"><i class="ph ph-x"></i></button></div>
+        <ul class="menu-list">
+          <li class="menu-link"><span class=""> <a href="./home.html">Home</a> </span></li>
+          <li class="menu-link"><span> <a href="./scheduling.html">Agenda</a> </span> </li>
+          <li class="menu-link"><span> <a href="./services.html">Serviços</a> </span> </li>
+          <li class="menu-link"><span> <a href="./about.html">Sobre</a> </span> </li>
+        </ul>
+      </nav>
+      <!--fim menu suspenso para mobile -->
     <header class="layout-header">
       <div class="layout-wrapper">
         <div class="logo">
@@ -51,7 +62,7 @@
 
         <section>
           <div class="container-services">
-            <div class="services service1">
+            <div class="services service1" id="service1">
               <figure>
                 <img class="image-service" src="./assets/fribra.jpg" alt="imagem do serviço 1">
               </figure>
@@ -64,7 +75,7 @@
               </div>
             </div>
   
-            <div class="services service2">
+            <div class="services service2" id="service2">
               <figure>
                 <img class="image-service" src="./assets/gel.jpg" alt="imagem do serviço 2">
               </figure>
@@ -77,7 +88,7 @@
               </div>
             </div>
   
-            <div class="services service3">
+            <div class="services service3" id="service3">
               <figure>
                 <img class="image-service" src="./assets/acrilico.jpg" alt="imagem do serviço 2">
               </figure>
@@ -90,7 +101,7 @@
               </div>
   
             </div>
-            <div class="services service4">
+            <div class="services service4" id="service4">
               <figure>
                 <img class="image-service" src="./assets/decoracao.jpg" alt="imagem do serviço 3">
               </figure>
@@ -102,7 +113,7 @@
                 </p>
               </div>
             </div>
-            <div class="services service5">
+            <div class="services service5" id="service5">
               <figure>
                 <img class="image-service" src="./assets/manutencao.jpg" alt="imagem do serviço 4">
               </figure>
@@ -115,7 +126,7 @@
   
               </div>
             </div>
-            <div class="services service5">
+            <div class="services service6" id="service6">
               <figure>
                 <img class="image-service" src="./assets/porcelana.jpg" alt="imagem do serviço 4">
               </figure>
@@ -146,6 +157,7 @@
       </div>
     </footer>
   </div>
+  <script src="index.js"></script>
 </body>
 
 </html>
