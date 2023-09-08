@@ -274,6 +274,18 @@
   .table-prices{
     font-size: .5rem;
   }
+  .container-service .content-service p, .container-service .content-service .checkbox-services label{
+    font-size: 1rem;
+  }
+  .container-service .content-service .checkbox-services input {
+    transform: scale(1);
+  }
+
+  .radio-service{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
 
   .content-calendar .calendar .ph {
     font-size: 2rem;
