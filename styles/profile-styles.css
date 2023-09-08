@@ -1,0 +1,108 @@
+.main-content {
+  min-height: 84vh;
+
+}
+.main-content a{
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.main-content section {
+  padding: 0rem 1rem;
+
+}
+
+.profile-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.5rem;
+}
+
+.profile-image img {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 100%;
+}
+
+.list-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-links ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  justify-content: space-around;
+  list-style: none;
+  letter-spacing: 2px;
+}
+
+.list-links ul li {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1rem;
+  background-color: rgba(137, 43, 226, 0.986);
+  width: 100%;
+  max-width: 16rem;
+
+  border-radius: 1rem;
+
+}
+
+.list-links ul li a {
+  width: 100%;
+  color: #ffff;
+
+}
+.t-scheduling{
+  display: flex;
+  justify-content: center;
+}
+
+.t-history {
+  width: 100%;
+  color: var(--text-color);
+}
+
+.t-history .t-title{
+  background-color: var(  --color-primary-3);
+  color: #ffff;
+}
+
+.t-history .t-subtitles th {
+  padding: 0 2rem;
+  background-color: var( --color-primary-2);
+}
+
+.t-data td{
+  padding: 0 2rem;
+  text-align: center;
+  
+}
+.t-data .ph-fill {
+  font-size:1.25rem ;
+}
+.t-data .ph-calendar-check{
+  color: rgb(0, 141, 24);
+}
+.t-data .ph-calendar-x{
+  color: var(--color-secondary-2-4);
+}
+.t-data .ph-check-circle{
+  color: rgb(0, 141, 24)
+}
+.t-data .ph-trash{
+  color: var(--color-secondary-2-4);
+  cursor: pointer;
+}
+.t-data:nth-child(odd){
+  background-color: rgba(196, 196, 196, 0.541);
+}
+

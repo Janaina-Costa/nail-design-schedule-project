@@ -49,6 +49,39 @@ body h1{
   --text-color: #212020;
   --text-color-light: #484747;
 }
+/*Tooltip*/
+.pai{
+  cursor: pointer;
+  position: relative;
+}
+.tooltip{
+  position: absolute;
+  text-align: center;
+  visibility: hidden;
+  background: #000000b0;
+  color: #ffffff;
+  padding: 5px 10px;
+}
+.tooltip::after{
+  content: '';
+  position: absolute;
+  top: 25%;
+  left: 0%;
+  margin-left: -8px;
+  width: 0;
+  height: 0;
+  border-right: 8px solid #000000b0;
+  border-top: 8px solid transparent ;
+  border-bottom: 8px solid transparent;
+}
+
+.pai:hover .tooltip{
+  visibility: visible;
+  opacity: 0.9;
+  top: 0px;
+  right: 25px;
+  z-index: 999;
+}
 
 /**/
 .container {

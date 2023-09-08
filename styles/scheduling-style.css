@@ -253,6 +253,9 @@
 .confirmation-area button {
   width: 100%;
 }
+.confirmation-area .content-button #cancel-schedule:hover{
+  background: var(--color-secondary-2-3);
+}
 
 .confirmation-area .content-notice {
   width: 100%;

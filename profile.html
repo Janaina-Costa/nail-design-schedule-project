@@ -6,104 +6,115 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./styles/global-style.css">
+  <link rel="stylesheet" href="./styles/profile-styles.css">
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <title>Perfil</title>
 </head>
 
 <body>
   <div class="">
-    <div class="wrapper">
-      <header class="layout-header">
-        <div class="layout-wrapper">
-          <div class="logo">
-            <img src="./assets/Logotipo Nome Minimalista Branco e Preto.png" alt="">
-          </div>
-          <nav class="menu">
-            <ul class="menu-list">
-              <li class="menu-link"> <a href="./home.html">Home</a> </li>
-              <li class="menu-link"> <a href="./scheduling.html">Agenda</a> </li>
-              <li class="menu-link"> <a href="./services.html">Serviços</a> </li>
-              <li class="menu-link"> <a href="./about.html">Sobre</a> </li>
-              <li class="menu-profile"><i class="ph ph-user-circle"></i>
-              </li>
-              <li class="menu-list-mobile"> <i class="ph ph-list"></i></li>
-            </ul>
-          </nav>
-          <!--inicio menu suspenso para mobile -->
-          <nav class="dropdown-menu">
-            <span><button class="close-button"><i class="ph ph-x"></i></button></span>
-            <ul class="menu-list">
-              <li class="menu-link"><span class=""> <a href="./home.html">Home</a> </span></li>
-              <li class="menu-link"><span> <a href="./scheduling.html">Agenda</a> </span> </li>
-              <li class="menu-link"><span> <a href="./services.html">Serviços</a> </span> </li>
-              <li class="menu-link"><span> <a href="./about.html">Sobre</a> </span> </li>
-            </ul>
-          </nav>
-          <!--fim menu suspenso para mobile -->
-
+    <header class="layout-header">
+      <div class="layout-wrapper">
+        <div class="logo">
+          <img src="./assets/Logotipo Nome Minimalista Branco e Preto.png" alt="">
         </div>
-      </header>
-      <main class="main-content">
-    
-      <main>
-        <section>
-          <div>
-            <img src="https://cdn-icons-png.flaticon.com/512/6522/6522516.png" alt="Imagem do perfil">
-            <p>Alterar imagem do perfil</p>
-          </div>
-          <ul>
-            <li>Alterar meus agendamento</li>
-            <li>Alterar meus dados cadastrais</li>
-            <li>Detalhes do meu agendamento</li>
+        <nav class="menu">
+          <ul class="menu-list">
+            <li class="menu-link"> <a href="./home.html">Home</a> </li>
+            <li class="menu-link"> <a href="./scheduling.html">Agenda</a> </li>
+            <li class="menu-link"> <a href="./services.html">Serviços</a> </li>
+            <li class="menu-link"> <a href="./about.html">Sobre</a> </li>
+            <li class="menu-profile"><i class="ph ph-user-circle"></i>
+            </li>
+            <li class="menu-list-mobile"> <i class="ph ph-list"></i></li>
           </ul>
-        </section>
-    
-        <section>
-          <table>
-            <thead>
-              <tr>
-                <th colspan="2">
-                  <h2>Meus agendamentos</h2>
-                </th>
-              <tr>
-                <th>Data</th>
-                <th>Status</th>
-              </tr>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><i class="ph ph-handshake"></i> xx/xx/xxxx </td>
-                <td>Agendado</td>
-              </tr>
-              <tr>
-                <td><i class="ph ph-x"></i> xx/xx/xxxx </td>
-                <td>Cancelado</td>
-              </tr>
-              <tr>
-                <td><i class="ph ph-check"></i> xx/xx/xxxx </td>
-                <td>Concluída</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-      </main>
-    
-      <footer>
-        <div class="content-footer">
-          <div class="copyright">
-            <span>&copy;</span> Janaina Costa
-          </div>
-          <div class="social-media">
-            <a href="https://www.instagram.com/"  target="_blank"> <i class="ph ph-instagram-logo"></i></a>
-            <a href="https://www.facebook.com/" target="_blank"> <i class="ph ph-facebook-logo"></i></a>
-            <a href="" target="_blank"> <i class="ph ph-whatsapp-logo"></i></a>
-            <a href="https://www.youtube.com/" target="_blank"> <i class="ph ph-youtube-logo"></i></a>
-          </div>
-        </div>
-      </footer>
+        </nav>
+        <!--inicio menu suspenso para mobile -->
+        <nav class="dropdown-menu">
+          <span><button class="close-button"><i class="ph ph-x"></i></button></span>
+          <ul class="menu-list">
+            <li class="menu-link"><span class=""> <a href="./home.html">Home</a> </span></li>
+            <li class="menu-link"><span> <a href="./scheduling.html">Agenda</a> </span> </li>
+            <li class="menu-link"><span> <a href="./services.html">Serviços</a> </span> </li>
+            <li class="menu-link"><span> <a href="./about.html">Sobre</a> </span> </li>
+          </ul>
+        </nav>
+        <!--fim menu suspenso para mobile -->
+
+      </div>
+    </header>
+    <div class="wrapper">
+      <main class="main-content">
+
+        <main>
+          <section>
+            <div class="profile-image">
+              <img src="https://cdn-icons-png.flaticon.com/512/6522/6522516.png" alt="Imagem do perfil">
+              <p><a href="">Alterar imagem do perfil</a></p>
+            </div>
+            
+            <div class="list-links">
+              <ul>
+                <li><a href="">Alterar senha</a></li>
+                <li><a href="">Alterar meus dados cadastrais</a></li>
+                <li><a href="">Detalhes do meu agendamento</a></li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="t-scheduling">
+            <table class="t-history">
+              <thead>
+                <tr>
+                  <th class="t-title" colspan="3">
+                    <h2>Agendamentos</h2>
+                  </th>
+                </tr>
+                <tr class="t-subtitles">
+                  <th class="t-data">Data</th>
+                  <th class="t-status">Status</th>
+                  <th class="t-status">Ação</th>
+                </tr>
+              </thead>
+              <tbody >
+                <tr class="t-data">
+                  <td>xx/xx/xx </td>
+                  <td class="pai"><i class="ph-fill ph-calendar-check "></i> <span class="tooltip">Agendado</span></td>
+                  <td class="pai"><i class="ph-fill ph-trash"></i><span class="tooltip">Excluir</span></td>
+                </tr>
+
+                <tr class="t-data">
+                  <td>xx/xx/xx </td>
+                  <td class="pai"><i class="ph-fill ph-calendar-x"></i><span class="tooltip">Cancelado</span></td>
+                  <td>***</td>
+                </tr>
+
+                <tr class="t-data">
+                  <td>xx/xx/xx </td>
+                  <td  class="pai"><i class="ph-fill ph-check-circle"></i> <span class="tooltip">Concluído</span></td>
+                  <td>***</td>
+                </tr>
+              
+              </tbody>
+            </table>
+          </section>
+        </main>
+
     </div>
-  </div>container
+    <footer>
+      <div class="content-footer">
+        <div class="copyright">
+          <span>&copy;</span> Janaina Costa
+        </div>
+        <div class="social-media">
+          <a href="https://www.instagram.com/" target="_blank"> <i class="ph ph-instagram-logo"></i></a>
+          <a href="https://www.facebook.com/" target="_blank"> <i class="ph ph-facebook-logo"></i></a>
+          <a href="" target="_blank"> <i class="ph ph-whatsapp-logo"></i></a>
+          <a href="https://www.youtube.com/" target="_blank"> <i class="ph ph-youtube-logo"></i></a>
+        </div>
+      </div>
+    </footer>
+  </div>
 </body>
 
 </html>
