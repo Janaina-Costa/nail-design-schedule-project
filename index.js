@@ -1,3 +1,5 @@
+let isLogged = 1
+
 const setStyleByEvent = (component, event, child, propStyle) => {
   component.addEventListener(event, () => {
     child.style.display = propStyle
@@ -22,25 +24,39 @@ toggleDropdownMenu()
 
 /*menu profile */
 
-
 const actionMenuProfile = () => {
-  const menuProfile = document.querySelector('.menu-profile')
+  const profileMenu = document.querySelector('.menu-profile')
   const componentMenuProfile = document.querySelector('.wrapper-menu-profile')
   const closeBtn = document.querySelector('.close')
 
-  setStyleByEvent(menuProfile, 'mouseover', componentMenuProfile, 'block')
+  setStyleByEvent(profileMenu, 'mouseover', componentMenuProfile, 'block')
   setStyleByEvent(closeBtn, 'click', componentMenuProfile, 'none')
- 
+  
+  showContentProfileMenu()
 }
+
+const showContentProfileMenu = ()=>{
+ 
+  const loggedUser = document.querySelector('.logged')
+  const unloggedUser = document.querySelector('.unlogged')
+
+  if(isLogged){
+    loggedUser.style.display = 'block'
+    unloggedUser.style.display = 'none'
+  }else{
+    loggedUser.style.display = 'none'
+    unloggedUser.style.display = 'block'
+  }
+}
+
 actionMenuProfile()
 
-
+/**Link flutuante */
 const showFloatingLink =()=>{
   const itemFloat = document.querySelector('.float')
   const linkFloat = document.querySelector('.float p')
   document.addEventListener('scroll',()=>{
     let position = window.pageYOffset
-    console.log(position);
     if(position > 0){
       itemFloat.classList.add('open-float')
   
@@ -59,14 +75,3 @@ showFloatingLink()
 
 
 
-/**
- * se estiver logado aparecer 
- * o nome 
- * o bairro
- * meu perfil
- * 
- * se não estiver logado
- * cadastre-se
- * fazer login
- * 
- */

@@ -253,6 +253,7 @@ i.ph-user-circle {
 }
 /*Menu do usuário*/
 .wrapper-menu-profile{
+  min-width: 16rem;
   display: flex;
   position: relative;
   flex-direction: column;
