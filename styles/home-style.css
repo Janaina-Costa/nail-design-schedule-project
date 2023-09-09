@@ -1,6 +1,6 @@
 .slogan h1 {
   margin: 0 0 1rem 0;
-  padding: 1rem;
+  padding:0 0 1rem;
   margin-bottom: 0;
   font-size: 3rem;
 }
@@ -9,7 +9,7 @@
 .client-gallery {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding:0 1rem;
 }
 
 .wrapper-gallery-client {
