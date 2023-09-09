@@ -1,4 +1,4 @@
-let isLogged = 1
+let isLogged = 0
 
 const setStyleByEvent = (component, event, child, propStyle) => {
   component.addEventListener(event, () => {
@@ -49,7 +49,14 @@ const showContentProfileMenu = ()=>{
   }
 }
 
+const redirectLogin = ()=>{
+  const loginLink = document.querySelector('.logi-in')
+  loginLink.addEventListener('click', ()=>{
+    window.location.assign('http://127.0.0.1:5500/login.html')
+  })
+}
 actionMenuProfile()
+redirectLogin()
 
 /**Link flutuante */
 const showFloatingLink =()=>{

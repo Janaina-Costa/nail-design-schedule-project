@@ -27,7 +27,7 @@
     <header class="layout-header">
       <div class="layout-wrapper">
         <div class="logo">
-          <img src="./assets/Logotipo Nome Minimalista Branco e Preto.png" alt="">
+          <a href="/"><img src="./assets/Logotipo Nome Minimalista Branco e Preto.png" alt=""></a>
         </div>
         <nav class="menu">
           <ul class="menu-list">
@@ -35,7 +35,7 @@
             <li class="menu-link"> <a href="./scheduling.html">Agenda</a> </li>
             <li class="menu-link"> <a href="./services.html">Serviços</a> </li>
             <li class="menu-link"> <a href="./about.html">Sobre</a> </li>
-            <li class="menu-profile"><a href="./profile.html"><i class="ph ph-user-circle"></i></a>
+            <li class="menu-profile"> <i class="ph ph-user-circle"></i>
             </li>
             <li class="menu-list-mobile"> <i class="ph ph-list"></i></li>
           </ul>
@@ -86,17 +86,20 @@
                     Email
                   </label>
                   <input type="email" id="email" placeholder="Digite seu email">
+                  <p class="error-mail">Campo inválido ou vazio</p>
                 </div>
                 <div class="input-content input-password">
                   <label for="password">
                     Senha
                   </label>
                   <input type="password" id="password" placeholder="Digite sua senha">
+                  <i class="eye ph-fill ph-eye"></i>
+                  <p class="error-pass">Campo inválido ou vazio</p>
                 </div>
               </div>
               <div class="button-area">
                 <p>Não é cadastrado ? <a href="./register.html">clique aqui</a> e cadastre-se.</p>
-              <button type="submit">Entrar</button>
+              <button class="btn-login" >Entrar</button>
               </div>
           </section>
           </form>
@@ -119,6 +122,7 @@
     </footer>
   </div>
   <script src="index.js"></script>
+  <script src="./script/formValidation.js"></script>
 </body>
 
 </html>
