@@ -51,8 +51,58 @@ body h1 {
   --text-color-light: #484747;
 }
 
+/*Float*/
+.float{
+  display: flex;
+  align-items: center;
+  background-color: var(--color-secondary-1-4);
+  width: 10px;
+  height: 50px;
+  z-index: 9;
+  color: transparent;
+  top: 350px;
+  position: sticky;
+  border-radius: 16rem;
+}
+
+.float p{
+  margin-left: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  
+}
+.open-float{  
+  animation: myfloat 1s forwards ease-in-out;
+}
+.close-float{
+  animation: myfloat2 1s forwards ease-in-out;
+ 
+}
+
+@keyframes myfloat{
+  from{
+    width: 10px;
+  }
+  to{
+    width: 230px;
+    color: #fff;
+  }
+}
+
+@keyframes myfloat2{
+  from{
+    color: #fff;
+
+    width: 230px;
+  }
+  to{
+    width: 10px;
+    color: transparent;
+  }
+}
+
 /*Tooltip*/
-.pai {
+.parent {
   cursor: pointer;
   position: relative;
 }
@@ -79,7 +129,7 @@ body h1 {
   border-bottom: 8px solid transparent;
 }
 
-.pai:hover .tooltip {
+.parent:hover .tooltip {
   visibility: visible;
   opacity: 0.9;
   top: 0px;
@@ -201,6 +251,52 @@ i.ph-user-circle {
   font-size: 28px;
   display: none;
 }
+/*Menu do usuário*/
+.wrapper-menu-profile{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  position: absolute;
+  right: 1rem;
+  background-color: #ffffff;
+  opacity: .9;
+  top: 5.5rem;
+  padding: 0 1rem;
+  border-radius: .5rem;
+  display: none;
+  z-index: 9;
+}
+.wrapper-menu-profile .btn-close{
+ display: flex;
+ align-items: center;
+  justify-items: flex-end;
+  justify-content: end;
+  margin-top: .25rem;
+}
+.wrapper-menu-profile .btn-close .close{
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.menu-profile{
+  font-size: 1.25rem;
+  margin-top: 0;
+  cursor: pointer;
+}
+.menu-profile a{
+  text-decoration: none;
+  color: inherit;
+}
+.content-menu-profile .neighborhood {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+/*fim*/
 
 /*menu suspenso mobile - só será exibido quando estiver em tela de mobile*/
 .dropdown-menu {
@@ -274,7 +370,7 @@ i.ph-user-circle {
   transform: scaleX(1);
 }
 
-/**/
+/*fim*/
 
 /*Footer*/
 
