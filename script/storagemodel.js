@@ -12,6 +12,14 @@ const removeAllStorageSchedule = () => {
 };
 
 const TECHNIQUE_NAME = getStorageSchedule("service");
+const TIME_SCHEDULE = getStorageSchedule('schedule-time')
+const DATE_SCHEDULE = getStorageSchedule('schedule-date')
+const PAYMENT_METHOD = getStorageSchedule('payment_method')
+
+
+const SERVICE_VALUE = getStorageSchedule('typeAplication')
+
+
 
 
 export  {
@@ -20,4 +28,8 @@ export  {
   removeStorageItemSchedule,
   removeAllStorageSchedule,
   TECHNIQUE_NAME,
+  PAYMENT_METHOD,
+  SERVICE_VALUE,
+  TIME_SCHEDULE,
+  DATE_SCHEDULE
 };
