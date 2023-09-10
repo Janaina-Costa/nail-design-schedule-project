@@ -16,8 +16,8 @@ const TIME_SCHEDULE = getStorageSchedule('schedule-time')
 const DATE_SCHEDULE = getStorageSchedule('schedule-date')
 const PAYMENT_METHOD = getStorageSchedule('payment_method')
 
-const FIRST_APLLY = getStorageSchedule('firstAplication')
-const MAINTENANCE = getStorageSchedule('maintenance')
+
+const SERVICE_VALUE = getStorageSchedule('typeAplication')
 
 
 
@@ -29,8 +29,7 @@ export  {
   removeAllStorageSchedule,
   TECHNIQUE_NAME,
   PAYMENT_METHOD,
-  FIRST_APLLY,
-  MAINTENANCE,
+  SERVICE_VALUE,
   TIME_SCHEDULE,
   DATE_SCHEDULE
 };
