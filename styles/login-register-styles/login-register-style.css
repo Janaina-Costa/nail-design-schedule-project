@@ -72,6 +72,7 @@ form {
   right: 16px;
   cursor: pointer;
   font-size: 20px;
+  top: 55px;
 }
 
 .content-form input {
@@ -90,7 +91,7 @@ form {
   font-size: 1.5rem;
 }
 
-.error-mail, .error-pass{
+.error, .error-mail, .error-pass, .error-name, .error-phone,.error-pass-confirm {
   color: var( --color-secondary-2-4);
   margin: 0;
   display: none;
@@ -121,6 +122,14 @@ form {
 .button-area button:hover{
   background: var(--color-secondary-1-4);
 }
+.confirmation{
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
 
 @media screen and (max-width:670px){
   .title h1 {
