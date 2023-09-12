@@ -4,13 +4,13 @@ import {
   PAYMENT_METHOD,
   TECHNIQUE_NAME,
   TIME_SCHEDULE,
-  getStorageSchedule,
-  removeStorageItemSchedule,
-  setStorageSchedule,
+  getStorage,
+  removeStorageItem,
+  setStorage,
   ENAMELING_SIMPLE,
   ENAMELING_GEL,
   DECORATION,
-  removeAllStorageSchedule,
+  removeAllStorage,
 } from "./storagemodel.js";
 
 /**SELEÇÃO DO SERVIÇO PELA LISTA */
@@ -20,25 +20,25 @@ const selectServiceFromSelectList = () => {
   list.addEventListener("change", () => {
     switch (list.value) {
       case "fiberGlass":
-        removeStorageItemSchedule("typeAplication");
-        removeStorageItemSchedule('value_service')
-        setStorageSchedule("service", tableValues.fiberGlass.name);
+        removeStorageItem("typeAplication");
+        removeStorageItem('value_service')
+        setStorage("service", tableValues.fiberGlass.name);
       
         break;
       case "acrygel":
-        removeStorageItemSchedule("typeAplication");
-        setStorageSchedule("service", tableValues.acrygel.name);
+        removeStorageItem("typeAplication");
+        setStorage("service", tableValues.acrygel.name);
       
         break;
 
       case "acrylic":
-        removeStorageItemSchedule("typeAplication");
-        setStorageSchedule("service", tableValues.acrylic.name);
+        removeStorageItem("typeAplication");
+        setStorage("service", tableValues.acrylic.name);
       
         break;
       case "porcelain":
-        removeStorageItemSchedule("typeAplication");
-        setStorageSchedule("service", tableValues.porcelain.name);
+        removeStorageItem("typeAplication");
+        setStorage("service", tableValues.porcelain.name);
       
         break;
     }
@@ -57,9 +57,9 @@ showServiceSelected();
 
 const getValue = ()=>{
 
- setStorageSchedule('value_service', getStorageSchedule('typeAplication') )
-  console.log(getStorageSchedule('value_service'));
-  let value = getStorageSchedule('value_service')
+ setStorage('value_service', getStorage('typeAplication') )
+  console.log(getStorage('value_service'));
+  let value = getStorage('value_service')
   if(!value){
     return
   }
@@ -74,10 +74,10 @@ const selectValueFromRadioButton = () => {
   radios.forEach((radio) => {
     radio.addEventListener("change", () => {
       if (radio.value === "firstAplication") {
-        removeStorageItemSchedule("maintenance");
+        removeStorageItem("maintenance");
         switch (TECHNIQUE_NAME) {
           case "Fibra de Vidro":
-            setStorageSchedule(
+            setStorage(
               "typeAplication",
               tableValues.fiberGlass.firstAplication
             );
@@ -85,14 +85,14 @@ const selectValueFromRadioButton = () => {
 
             break;
           case "Acrigel":
-            setStorageSchedule(
+            setStorage(
               "typeAplication",
               tableValues.acrygel.firstAplication
             );
 
             break;
           case "Acrílico":
-            setStorageSchedule(
+            setStorage(
               "typeAplication",
               tableValues.acrylic.firstAplication
             );
@@ -100,29 +100,29 @@ const selectValueFromRadioButton = () => {
             break;
 
           case "Porcelana":
-            setStorageSchedule(
+            setStorage(
               "typeAplication",
               tableValues.porcelain.firstAplication
             );
             break;
         }
       } else if (radio.value === "maintenance") {
-        removeStorageItemSchedule("firstAplication");
+        removeStorageItem("firstAplication");
 
         switch (TECHNIQUE_NAME) {
           case "Fibra de Vidro":
-            setStorageSchedule(
+            setStorage(
               "typeAplication",
               tableValues.fiberGlass.maintenance
             );
 
             break;
           case "Acrigel":
-            setStorageSchedule("maintenance", tableValues.acrygel.maintenance);
+            setStorage("maintenance", tableValues.acrygel.maintenance);
 
             break;
           case "Acrílico":
-            setStorageSchedule(
+            setStorage(
               "typeAplication",
               tableValues.acrylic.maintenance
             );
@@ -130,7 +130,7 @@ const selectValueFromRadioButton = () => {
             break;
 
           case "Porcelana":
-            setStorageSchedule(
+            setStorage(
               "typeAplication",
               tableValues.porcelain.maintenance
             );
@@ -154,25 +154,25 @@ const selectValuesFromCheckbox = () => {
   check.forEach((item, i) => {
     item.addEventListener("click", () => {
       if (item.value === "simple") {
-        setStorageSchedule("enameling-simple", tableValues.enameling.simple);
+        setStorage("enameling-simple", tableValues.enameling.simple);
 
         if (!item.checked) {
-          removeStorageItemSchedule("enameling-simple");
+          removeStorageItem("enameling-simple");
         }
       } else if (item.value === "gel") {
-        setStorageSchedule("enameling-gel", tableValues.enameling.gel);
+        setStorage("enameling-gel", tableValues.enameling.gel);
 
         if (!item.checked) {
-          removeStorageItemSchedule("enameling-gel");
+          removeStorageItem("enameling-gel");
         }
       } else if (item.value === "decoration") {
-        setStorageSchedule(
+        setStorage(
           "enameling-decoration",
           tableValues.enameling.decoration
         );
 
         if (!item.checked) {
-          removeStorageItemSchedule("enameling-decoration");
+          removeStorageItem("enameling-decoration");
         }
       }
     });
@@ -188,35 +188,35 @@ const persistsCheckedField = () => {
   const check = document.querySelectorAll(".check-service");
   const paymentsGroup = document.getElementsByName("pay-method");
 
-  if (Boolean(getStorageSchedule("firstAplication"))) {
+  if (Boolean(getStorage("firstAplication"))) {
     console.log("caiu");
     radios.forEach((item) => {
-      if (getStorageSchedule("firstAplication") === item.value) {
+      if (getStorage("firstAplication") === item.value) {
         item.checked = true;
       }
     });
-    if (Boolean(getStorageSchedule("maintenance"))) {
+    if (Boolean(getStorage("maintenance"))) {
       radios.forEach((item) => {
-        if (getStorageSchedule("maintenance") === item.value) {
+        if (getStorage("maintenance") === item.value) {
           item.checked = true;
         }
       });
     }
   }
 
-  if (Boolean(getStorageSchedule("enameling-simple"))) {
+  if (Boolean(getStorage("enameling-simple"))) {
     check[0].checked = true;
   }
-  if (Boolean(getStorageSchedule("enameling-gel"))) {
+  if (Boolean(getStorage("enameling-gel"))) {
     check[1].checked = true;
   }
-  if (Boolean(getStorageSchedule("enameling-decoration"))) {
+  if (Boolean(getStorage("enameling-decoration"))) {
     check[2].checked = true;
   }
 
-  if (Boolean(getStorageSchedule("payment_method"))) {
+  if (Boolean(getStorage("payment_method"))) {
     paymentsGroup.forEach((item, i) => {
-      if (getStorageSchedule("payment_method") === item.value) {
+      if (getStorage("payment_method") === item.value) {
         item.checked = true;
       }
     });
@@ -262,11 +262,11 @@ const setCalendarDate = () => {
 
   const today = formatDate();
 
-  date.value = getStorageSchedule("schedule-date") ?? today;
+  date.value = getStorage("schedule-date") ?? today;
   date.setAttribute("min", today);
 
   date.addEventListener("change", () => {
-    setStorageSchedule("schedule-date", date.value);
+    setStorage("schedule-date", date.value);
   });
 };
 
@@ -274,10 +274,10 @@ const setCalendarTime = () => {
   const time = document.querySelector("#time");
   const now = formateTime();
 
-  time.value = getStorageSchedule("schedule-time") ?? now;
+  time.value = getStorage("schedule-time") ?? now;
   time.setAttribute("min", now);
   time.addEventListener("change", () => {
-    setStorageSchedule("schedule-time", time.value);
+    setStorage("schedule-time", time.value);
   });
 };
 
@@ -296,11 +296,11 @@ const getPaymentMethod = () => {
   paymentsGroup.forEach((method, i) => {
     method.addEventListener("change", () => {
       if (method.value === methodCash) {
-        setStorageSchedule("payment_method", methodCash);
+        setStorage("payment_method", methodCash);
       } else if (method.value === methodCard) {
-        setStorageSchedule("payment_method", methodCard);
+        setStorage("payment_method", methodCard);
       } else {
-        setStorageSchedule("payment_method", methodPix);
+        setStorage("payment_method", methodPix);
       }
       location.reload();
     });
@@ -311,10 +311,10 @@ getPaymentMethod();
 /**------------------------------------------ */
 
 const calculateService = () => {
-  let value_service = getStorageSchedule('value_service')
-  let esmaltSimples = getStorageSchedule('enameling-simple')
-  let esmalteGel = getStorageSchedule('enameling-gel')
-  let decoration = getStorageSchedule('enameling-decoration')
+  let value_service = getStorage('value_service')
+  let esmaltSimples = getStorage('enameling-simple')
+  let esmalteGel = getStorage('enameling-gel')
+  let decoration = getStorage('enameling-decoration')
 
   
 
@@ -378,7 +378,7 @@ const validateInputs = (text)=>{
     phrase.innerHTML = text
 
     paymentsGroup.forEach((item, i) => {
-      if (getStorageSchedule("payment_method") === item.value) {
+      if (getStorage("payment_method") === item.value) {
         item.checked = false;
       }
     });
@@ -401,11 +401,11 @@ const handleChangeScheduleButton = ()=>{
 
   btnChange.addEventListener('click', ()=>{
     paymentsGroup.forEach((item, i) => {
-      if (getStorageSchedule("payment_method") === item.value) {
+      if (getStorage("payment_method") === item.value) {
         item.checked = false;
       }
     });
-    removeStorageItemSchedule('payment_method')
+    removeStorageItem('payment_method')
     summary.style.display = 'none'
 
   })
@@ -425,7 +425,7 @@ const handleCancelScheduleButton = ()=>{
   })
 
   yesbtn.addEventListener('click',()=>{
-    removeAllStorageSchedule()
+    removeAllStorage()
     alert('Agendamento cancelado com sucesso')
     location.reload()
   })
