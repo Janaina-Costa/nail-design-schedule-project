@@ -1,8 +1,6 @@
-
-const regex = /^\w+@\w+?\.[a-zA-Z]{2,3}$/
-
 const email = document.querySelector('#email')
 const password = document.querySelector('#password')
+const confirmationMessage = document.querySelector('.confirmation')
 const btn = document.querySelector('.btn-login')
 const errorMail = document.querySelector('.error-mail')
 const errorPass = document.querySelector('.error-pass')
@@ -20,6 +18,10 @@ const submitForm = () => {
     e.preventDefault()
     validatePassword()
     validateEmail()
+
+    if( email.value.length > 0 && password.value.length > 0 ){
+      confirmationMessage.style.display = 'flex'
+    }
   })
 }
 submitForm()

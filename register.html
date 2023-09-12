@@ -85,13 +85,15 @@
                     Nome
                   </label>
                   <input type="text" id="name" placeholder="Digite seu nome completo">
+                  <p class="error-name">Campo inválido ou vazio</p>
                 </div>
 
                 <div class="input-content input-email">
                   <label for="email">
                     Email
                   </label>
-                  <input type="email" id="email" placeholder="Digite seu email">
+                  <input required type="email" id="email" placeholder="Digite seu email">
+                  <p class="error-mail">Campo inválido ou vazio</p>
                 </div>
 
                 <div class="input-content input-phone">
@@ -99,6 +101,7 @@
                     Telefone
                   </label>
                   <input type="text" id="phone" placeholder="Digite seu telefone">
+                  <p class="error-phone">Campo inválido ou vazio</p>
                 </div>
 
                 <div class="input-content input-password">
@@ -106,18 +109,23 @@
                     Senha
                   </label>
                   <input type="password" id="password" placeholder="Digite sua senha">
+                  <p class="error-pass">Campo inválido ou vazio</p>
                 </div>
 
-                <div class="input-content input-confirme-mail">
+                <div class="input-content input-confirme-pass">
                   <label for="password">
                     Confirmar senha
                   </label>
-                  <input type="password" id="password" placeholder="Confirme sua senha">
+                  <input type="password" id="password-confirm" placeholder="Confirme sua senha">
+                  <p class="error-pass-confirm">Campo inválido ou vazio</p>
                 </div>
               </div>
               <div class="button-area">
                 <p>Já possui cadastrado ? <a href="./login.html">clique aqui</a> e faça seu login.</p>
-                <button type="submit">Cadastrar</button>
+                <button class="btn-register">Cadastrar</button>
+                <p class="confirmation">Cadastro realizado com sucesso!
+                  <i class="ph-fill ph-check-square"></i>
+                </p>
               </div>
             </form>
           </section>
@@ -140,6 +148,7 @@
     </footer>
   </div>
   <script src="index.js"></script>
+  <script src="./script/registerForm.js"></script>
 </body>
 
 </html>

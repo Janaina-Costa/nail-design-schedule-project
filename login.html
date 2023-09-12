@@ -13,17 +13,17 @@
 
 <body>
   <div class="container">
-       <!--inicio menu suspenso para mobile -->
-       <nav class="dropdown-menu">
-        <div><button class="close-button"><i class="ph ph-x"></i></button></div>
-        <ul class="menu-list">
-          <li class="menu-link"><span class=""> <a href="/">Home</a> </span></li>
-          <li class="menu-link"><span> <a href="./scheduling.html">Agenda</a> </span> </li>
-          <li class="menu-link"><span> <a href="./services.html">Serviços</a> </span> </li>
-          <li class="menu-link"><span> <a href="./about.html">Sobre</a> </span> </li>
-        </ul>
-      </nav>
-      <!--fim menu suspenso para mobile -->
+    <!--inicio menu suspenso para mobile -->
+    <nav class="dropdown-menu">
+      <div><button class="close-button"><i class="ph ph-x"></i></button></div>
+      <ul class="menu-list">
+        <li class="menu-link"><span class=""> <a href="/">Home</a> </span></li>
+        <li class="menu-link"><span> <a href="./scheduling.html">Agenda</a> </span> </li>
+        <li class="menu-link"><span> <a href="./services.html">Serviços</a> </span> </li>
+        <li class="menu-link"><span> <a href="./about.html">Sobre</a> </span> </li>
+      </ul>
+    </nav>
+    <!--fim menu suspenso para mobile -->
     <header class="layout-header">
       <div class="layout-wrapper">
         <div class="logo">
@@ -65,7 +65,7 @@
           <p class="link-profile menu-profile"><a href="./profile.html"> Meu perfil</a></p>
         </div>
         <div class="unlogged content-menu-profile">
-          <p class="logi-in menu-profile">Faça seu login ou Cadastre-se</p>          
+          <p class="logi-in menu-profile">Faça seu login ou Cadastre-se</p>
         </div>
       </div>
       <!--Fim Menu do usuário -->
@@ -92,14 +92,17 @@
                   <label for="password">
                     Senha
                   </label>
-                  <input type="password" id="password" placeholder="Digite sua senha">
                   <i class="eye ph-fill ph-eye"></i>
+                  <input type="password" id="password" placeholder="Digite sua senha">
                   <p class="error-pass">Campo inválido ou vazio</p>
                 </div>
               </div>
               <div class="button-area">
                 <p>Não é cadastrado ? <a href="./register.html">clique aqui</a> e cadastre-se.</p>
-              <button class="btn-login" >Entrar</button>
+                <button class="btn-login">Entrar</button>
+                <p class="confirmation">Login realizado com sucesso!
+                  <i class="ph-fill ph-check-square"></i>
+                </p>
               </div>
           </section>
           </form>
@@ -122,7 +125,7 @@
     </footer>
   </div>
   <script src="index.js"></script>
-  <script src="./script/formValidation.js"></script>
+  <script src="./script/loginForm.js"></script>
 </body>
 
 </html>
