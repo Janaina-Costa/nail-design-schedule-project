@@ -2,12 +2,15 @@ import tableValues from "./tablePrice.js";
 import {
   DATE_SCHEDULE,
   PAYMENT_METHOD,
-  SERVICE_VALUE,
   TECHNIQUE_NAME,
   TIME_SCHEDULE,
   getStorageSchedule,
   removeStorageItemSchedule,
   setStorageSchedule,
+  ENAMELING_SIMPLE,
+  ENAMELING_GEL,
+  DECORATION,
+  removeAllStorageSchedule,
 } from "./storagemodel.js";
 
 /**SELEÇÃO DO SERVIÇO PELA LISTA */
@@ -63,7 +66,7 @@ const getValue = ()=>{
   return value
 }
 
-/**SELECÇÃO DO CAMPO DE RADIO - SERVIÇO */
+/**SELEÇÃO DO CAMPO DE RADIO - SERVIÇO */
 
 const selectValueFromRadioButton = () => {
   const radios = document.getElementsByName("radio-service");
@@ -222,7 +225,7 @@ const persistsCheckedField = () => {
 persistsCheckedField();
 /**------------------------------------------ */
 
-/**SELECÇÃO DO CAMPO DE CHECK - SERVIÇO */
+/**SELEÇÃO DO CAMPO DE CHECK - SERVIÇO */
 
 /**CALENDARIO */
 const formatDate = () => {
@@ -284,8 +287,8 @@ setCalendarTime();
 /**------------------------------------------ */
 
 /**PAGAMENTO */
+const paymentsGroup = document.getElementsByName("pay-method");
 const getPaymentMethod = () => {
-  const paymentsGroup = document.getElementsByName("pay-method");
   const methodCash = document.querySelector("#cash").value;
   const methodCard = document.querySelector("#card").value;
   const methodPix = document.querySelector("#pix").value;
@@ -323,14 +326,17 @@ return totalValue.toFixed(2)
 
 
 /**MOSTRAR RESUMO DO AGENDAMENTO */
+const summaryServiceText = `${TECHNIQUE_NAME} ${ENAMELING_SIMPLE? '+ Esmaltação simples': ''} ${ENAMELING_GEL? '+ Esmaltação em  gel' : ''} ${DECORATION?"+ Decoração": ''}`;
+
+const labelService = document.querySelector(".service-summary");
+const labelDate = document.querySelector(".summary-label-date");
+const labelTime = document.querySelector(".summary-label-hour");
+const labelMethod = document.querySelector(".payment-method-summary");
+const labelTotalValue = document.querySelector('.summary-total-value')
+
 const handleValuesToSummary = () => {
-  const labelService = document.querySelector(".service-summary");
-  const labelDate = document.querySelector(".summary-label-date");
-  const labelTime = document.querySelector(".summary-label-hour");
-  const labelMethod = document.querySelector(".payment-method-summary");
-  const labelTotalValue = document.querySelector('.summary-total-value')
   let paymentMethod;
-  labelService.innerHTML = TECHNIQUE_NAME;
+  labelService.innerHTML = summaryServiceText;
   labelDate.innerHTML = DATE_SCHEDULE;
   labelTime.innerHTML = TIME_SCHEDULE;
   labelTotalValue.innerHTML = calculateService()
@@ -346,12 +352,89 @@ const handleValuesToSummary = () => {
   }
   labelMethod.innerHTML = paymentMethod;
 };
-const showSumary = () => {
+
+const phrase = document.querySelector('.confirmation-phrase')
+
+const summary = document.querySelector(".summary");
+const showSummary = () => {
   handleValuesToSummary();
-  const summary = document.querySelector(".summary");
   if (PAYMENT_METHOD) {
     summary.style.display = "block";
   }
 };
-showSumary();
+showSummary();
 /**------------------------------------------ */
+
+
+
+/**BOTÕES */
+
+
+const validateInputs = (text)=>{
+
+  if(labelService.innerHTML === '' || labelDate.innerHTML === '' || labelTime.innerHTML ==='' ){
+    phrase.style.color = 'red'
+    phrase.style.fontSize = '1.25rem'
+    phrase.innerHTML = text
+
+    paymentsGroup.forEach((item, i) => {
+      if (getStorageSchedule("payment_method") === item.value) {
+        item.checked = false;
+      }
+    });
+  }
+}
+
+const handleConfirmationScheduleButton = ()=>{
+  const btn = document.querySelector('#confirm-schedule')
+  
+  btn.addEventListener('click', (e)=>{
+    e.preventDefault()
+    validateInputs('*Favor preencher todos os campos')
+ 
+    phrase.style.display = 'flex'
+  })
+}
+
+const handleChangeScheduleButton = ()=>{
+  const btnChange = document.querySelector('#change-schedule')
+
+  btnChange.addEventListener('click', ()=>{
+    paymentsGroup.forEach((item, i) => {
+      if (getStorageSchedule("payment_method") === item.value) {
+        item.checked = false;
+      }
+    });
+    removeStorageItemSchedule('payment_method')
+    summary.style.display = 'none'
+
+  })
+  
+}
+
+const handleCancelScheduleButton = ()=>{
+  const btnCancel = document.querySelector('#cancel-schedule')
+  const confirmModal = document.querySelector('.confirm-cancellation')
+
+  const yesbtn = document.querySelector('#yes')
+  const notbtn = document.querySelector('#not')
+
+  btnCancel.addEventListener('click', ()=>{
+    confirmModal.style.display = 'flex'   
+
+  })
+
+  yesbtn.addEventListener('click',()=>{
+    removeAllStorageSchedule()
+    alert('Agendamento cancelado com sucesso')
+    location.reload()
+  })
+
+  notbtn.addEventListener('click', ()=>{
+    confirmModal.style.display = 'none'
+  })
+}
+
+handleConfirmationScheduleButton()
+handleChangeScheduleButton()
+handleCancelScheduleButton()

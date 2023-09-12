@@ -12,6 +12,9 @@ const removeAllStorageSchedule = () => {
 };
 
 const TECHNIQUE_NAME = getStorageSchedule("service");
+const ENAMELING_GEL = getStorageSchedule('enameling-gel')
+const ENAMELING_SIMPLE = getStorageSchedule('enameling-simple')
+const DECORATION = getStorageSchedule('enameling-decoration')
 const TIME_SCHEDULE = getStorageSchedule('schedule-time')
 const DATE_SCHEDULE = getStorageSchedule('schedule-date')
 const PAYMENT_METHOD = getStorageSchedule('payment_method')
@@ -31,5 +34,8 @@ export  {
   PAYMENT_METHOD,
   SERVICE_VALUE,
   TIME_SCHEDULE,
-  DATE_SCHEDULE
+  DATE_SCHEDULE,
+  DECORATION,
+  ENAMELING_GEL ,
+  ENAMELING_SIMPLE
 };
