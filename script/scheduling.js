@@ -58,7 +58,6 @@ showServiceSelected();
 const getValue = () => {
 
   setStorage('value_service', getStorage('typeAplication'))
-  console.log(getStorage('value_service'));
   let value = getStorage('value_service')
   if (!value) {
     return
@@ -318,7 +317,6 @@ const calculateService = () => {
 
 
   let totalValue = Number(value_service) + Number(esmaltSimples) + Number(esmalteGel) + Number(decoration)
-  console.log(totalValue.toFixed(2));
   return totalValue.toFixed(2)
 
 };
@@ -388,7 +386,6 @@ const handleConfirmationScheduleButton = () => {
 
 
     } else if (labelService.innerHTML.length > 0 && labelDate.innerHTML.length > 0 && labelTime.innerHTML.length > 0) {
-      console.log('tudo');
       location.assign('./thankyou.html')
     }
 
