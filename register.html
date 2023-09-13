@@ -54,7 +54,7 @@
 
       </div>
       <!-- Menu do usuário -->
-      <div class="wrapper-menu-profile">
+      <!-- <div class="wrapper-menu-profile">
         <div class="btn-close"><button class="close"><i class="ph ph-x"></i></button></div>
         <div class="logged content-menu-profile">
           <p class="name menu-profile">Fulana de tal</p>
@@ -65,9 +65,9 @@
           <p class="link-profile menu-profile"><a href="./profile.html"> Meu perfil</a></p>
         </div>
         <div class="unlogged content-menu-profile">
-          <p class="logi-in menu-profile">Faça seu login ou Cadastre-se</p>          
+          <p class="logi-in menu-profile">Faça seu <a href="./login.html">login</a> ou <a href="./register.html">Cadastre-se</a></p>         
         </div>
-      </div>
+      </div> -->
       <!--Fim Menu do usuário -->
     </header>
     <div class="wrapper">
@@ -88,20 +88,36 @@
                   <p class="error-name">Campo inválido ou vazio</p>
                 </div>
 
-                <div class="input-content input-email">
-                  <label for="email">
-                    Email
-                  </label>
-                  <input type="email" id="email" placeholder="Digite seu email">
-                  <p class="error-mail">Campo inválido ou vazio</p>
-                </div>
-
+                
                 <div class="input-content input-phone">
                   <label for="phone">
                     Telefone
                   </label>
                   <input type="text" id="phone" placeholder="Digite seu telefone">
                   <p class="error-phone">Campo inválido ou vazio</p>
+                </div>
+
+                <div class="input-content input-address">
+                  <label for="address">
+                    Endereço
+                  </label>
+                  <input type="text" id="address" placeholder="Digite seu endereço">
+                  <p class="error-address">Campo inválido ou vazio</p>
+                </div>
+
+                <div class="input-content input-neighborhood">
+                  <label for="neighborhood"> Bairro</label>               
+            
+                  <input type="text" id="neighborhood" placeholder="Digite o nome do seu bairro">
+                  <p class="error-neighborhood">Campo inválido ou vazio</p>
+                </div>
+
+                <div class="input-content input-email">
+                  <label for="email">
+                    Email
+                  </label>
+                  <input type="email" id="email" placeholder="Digite seu email">
+                  <p class="error-mail">Campo inválido ou vazio</p>
                 </div>
 
                 <div class="input-content input-password">
@@ -112,14 +128,11 @@
                   <p class="error-pass">Campo inválido ou vazio</p>
                 </div>
 
-                <div class="input-content input-confirme-pass">
-                  <label for="password">
-                    Confirmar senha
-                  </label>
-                  <input type="password" id="password-confirm" placeholder="Confirme sua senha">
-                  <p class="error-pass-confirm">Campo inválido ou vazio</p>
+                <div class="input-content input-password">
+                  <label for="profile-image">Imagem do perfil</label>
+                  <input type="file" id="profile-image" accept="image/png, image/jpeg" >
                 </div>
-              </div>
+
               <div class="button-area">
                 <p>Já possui cadastrado ? <a href="./login.html">clique aqui</a> e faça seu login.</p>
                 <button class="btn-register">Cadastrar</button>

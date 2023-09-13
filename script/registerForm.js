@@ -3,14 +3,16 @@ const completeName = document.querySelector('#name')
 const email = document.querySelector('#email')
 const phone = document.querySelector('#phone')
 const password = document.querySelector('#password')
-const confirmPassword = document.querySelector('#password-confirm')
+const address = document.querySelector('#address')
+const neighborhood = document.querySelector('#neighborhood')
 const confirmationMessage = document.querySelector('.confirmation')
 
 const errorName = document.querySelector('.error-name')
 const btn = document.querySelector('.btn-register')
 const errorMail = document.querySelector('.error-mail')
 const errorPass = document.querySelector('.error-pass')
-const errorPassConfirm = document.querySelector('.error-pass-confirm')
+const errorAddress = document.querySelector('.error-address')
+const errorNeighborhood = document.querySelector('.error-neighborhood')
 const errorPhone = document.querySelector('.error-phone')
 
 const validateName = () => {
@@ -27,9 +29,12 @@ const validatePhone = () => {
 const validatePassword = () => {
   password.value.length <= 0 ? errorPass.style.display = 'block' : errorPass.style.display = 'none'
 }
+const validateAddress = () => {
+  address.value.length <= 0 ? errorAddress.style.display = 'block' : errorAddress.style.display = 'none'
+}
 
-const validatePassConfirm = () => {
-  confirmPassword.value.length <= 0 ? errorPassConfirm.style.display = 'block' : errorPassConfirm.style.display = 'none'
+const validateNeighborhood = () => {
+  neighborhood.value.length <= 0 ? errorNeighborhood.style.display = 'block' : errorNeighborhood.style.display = 'none'
 }
 
 const getDataUserField = ()=>{
@@ -52,7 +57,8 @@ const submitForm = () => {
     validateEmail()
     validatePhone()
     validatePassword()
-    validatePassConfirm()
+    validateNeighborhood()
+    validateAddress()
 
   
     if(completeName.value.length > 0 && email.value.length > 0 && phone.value.length > 0 && password.value.length > 0 && confirmPassword.value.length > 0  ){
