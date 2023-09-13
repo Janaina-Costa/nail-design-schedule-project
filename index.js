@@ -93,6 +93,12 @@ const showFloatingLink =()=>{
     window.location.assign('http://127.0.0.1:5500/scheduling.html')
   })
 
+  itemFloat.addEventListener('mouseover',()=>{itemFloat.classList.add('open-float')})
+  itemFloat.addEventListener('mouseleave',()=>itemFloat.classList.add('close-float'))
+
+  itemFloat.addEventListener('touchstart',()=>itemFloat.classList.add('open-float'))
+  itemFloat.addEventListener('touchend',()=>itemFloat.classList.add('close-float'))
+
 }
 showFloatingLink()
 
