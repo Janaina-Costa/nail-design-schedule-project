@@ -28,9 +28,6 @@ const USER_CEP = getStorage('user_cep')
 const USER_ADDRESS = getStorage('user_address')
 const USER_PHONE =  getStorage('user_phone')
 
-
-
-
 export  {
   setStorage,
   getStorage,

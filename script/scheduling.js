@@ -45,10 +45,11 @@ const selectServiceFromSelectList = () => {
     location.reload()
   });
 };
+
 /**SELEÇÃO DO SERVIÇO PELA LISTA */
 selectServiceFromSelectList()
-
 selectServiceFromSelectList();
+
 const showServiceSelected = () => {
   const selectedTech = document.querySelector(".selected-technique");
   selectedTech.innerHTML = TECHNIQUE_NAME;
@@ -145,7 +146,7 @@ const selectValueFromRadioButton = () => {
 selectValueFromRadioButton();
 /**------------------------------------------ */
 
-/**SELECÇÃO DO CAMPO DE CHECK - SERVIÇO */
+/**SELEÇÃO DO CAMPO DE CHECK - SERVIÇO */
 
 const selectValuesFromCheckbox = () => {
   const check = document.querySelectorAll(".check-service");
@@ -223,9 +224,9 @@ const persistsCheckedField = () => {
 persistsCheckedField();
 /**------------------------------------------ */
 
-/**SELEÇÃO DO CAMPO DE CHECK - SERVIÇO */
 
-/**CALENDARIO */
+
+/**CALENDÁRIO */
 const formatDate = () => {
   const data = new Date();
 
@@ -310,13 +311,11 @@ getPaymentMethod();
 
 const calculateService = () => {
   let value_service = getStorage('value_service')
-  let esmaltSimples = getStorage('enameling-simple')
-  let esmalteGel = getStorage('enameling-gel')
+  let enamelingSimple = getStorage('enameling-simple')
+  let enamelingGel = getStorage('enameling-gel')
   let decoration = getStorage('enameling-decoration')
 
-
-
-  let totalValue = Number(value_service) + Number(esmaltSimples) + Number(esmalteGel) + Number(decoration)
+  let totalValue = Number(value_service) + Number(enamelingSimple) + Number(enamelingGel) + Number(decoration)
   return totalValue.toFixed(2)
 
 };
@@ -337,8 +336,6 @@ const handleValuesToSummary = () => {
   labelDate.innerHTML = DATE_SCHEDULE;
   labelTime.innerHTML = TIME_SCHEDULE;
   labelTotalValue.innerHTML = calculateService()
-
-
 
   if (PAYMENT_METHOD === "card") {
     paymentMethod = "Cartão de crédito/débito";
@@ -362,8 +359,6 @@ const showSummary = () => {
 showSummary();
 /**------------------------------------------ */
 
-
-
 /**BOTÕES */
 
 const handleConfirmationScheduleButton = () => {
@@ -383,7 +378,6 @@ const handleConfirmationScheduleButton = () => {
           item.checked = false;
         }
       });
-
 
     } else if (labelService.innerHTML.length > 0 && labelDate.innerHTML.length > 0 && labelTime.innerHTML.length > 0) {
       location.assign('./thankyou.html')
@@ -434,3 +428,4 @@ const handleCancelScheduleButton = () => {
 handleConfirmationScheduleButton()
 handleChangeScheduleButton()
 handleCancelScheduleButton()
+/****------------- */
