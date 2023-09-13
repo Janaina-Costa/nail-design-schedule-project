@@ -65,8 +65,17 @@ const getDataUserField = ()=>{
   cep.addEventListener('blur', (e)=>{
     setStorage('user_cep', e.target.value)
   })
+
   neighborhood.addEventListener('blur', (e)=>{
     setStorage('user_neighborhood', e.target.value)
+  })
+
+  address.addEventListener('blur', (e)=>{
+    setStorage('user_address', e.target.value)
+  })
+
+  phone.addEventListener('user_phone', (e)=>{
+    setStorage('user_phone', e.target.value)
   })
 }
 const phoneMask = (value)=>{
@@ -117,6 +126,10 @@ submitForm()
 
 
 /**persistir dados no fomulario */
+
+
+
 /**** */
-/**máscara de telefone */
+
+
 

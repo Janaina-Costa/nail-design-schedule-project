@@ -23,7 +23,10 @@ const SERVICE_VALUE = getStorage('typeAplication')
 const USER_NAME =   getStorage('user_name')
 const USER_EMAIL = getStorage('user_mail')
 const USER_PASSWORD =  getStorage('user_password') 
-const  USER_NEIGHBORHOOD = getStorage('user_neighborhood')
+const USER_NEIGHBORHOOD = getStorage('user_neighborhood')
+const USER_CEP = getStorage('user_cep')
+const USER_ADDRESS = getStorage('user_address')
+const USER_PHONE =  getStorage('user_phone')
 
 
 
@@ -45,4 +48,7 @@ export  {
   USER_PASSWORD,
   USER_EMAIL,
   USER_NEIGHBORHOOD,
+  USER_ADDRESS,
+  USER_CEP,
+  USER_PHONE
 };

@@ -189,7 +189,6 @@ const persistsCheckedField = () => {
   const paymentsGroup = document.getElementsByName("pay-method");
 
   if (Boolean(getStorage("firstAplication"))) {
-    console.log("caiu");
     radios.forEach((item) => {
       if (getStorage("firstAplication") === item.value) {
         item.checked = true;
