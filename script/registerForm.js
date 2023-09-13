@@ -1,5 +1,6 @@
 import {setStorage} from './storagemodel.js'
 
+
 const completeName = document.querySelector('#name')
 const email = document.querySelector('#email')
 const phone = document.querySelector('#phone')
@@ -17,6 +18,77 @@ const errorCep = document.querySelector('.error-cep')
 const errorAddress = document.querySelector('.error-address')
 const errorNeighborhood = document.querySelector('.error-neighborhood')
 const errorPhone = document.querySelector('.error-phone')
+
+const zipCodeMask = (value)=>{
+  if (!value) return ""
+  value = value.replace(/\D/g,'')
+  value = value.replace(/(\d{5})(\d)/,'$1-$2')
+  return value
+}
+
+const handleZipCode = ()=>{
+  cep.addEventListener('keyup',(e)=>{
+    let value = e.target.value
+    value = zipCodeMask(value)
+    cep.value = value
+   
+  })
+}
+handleZipCode()
+
+const getZipCode = async()=>{
+  let zip = document.querySelector('#cep').value
+  zip = zip.replace('-', '')
+  
+  const url = `https://viacep.com.br/ws/${zip}/json/`
+  if(zip.length !==8){
+    alert('Cep inválido')
+    return
+  }
+  try{
+    const response = await fetch(url)
+    const data = await response.json()
+    if(!data){
+      return
+    }
+    
+    showAddressData(data)
+    console.log({data});
+    return data
+
+  }catch(e){
+   console.log(e);
+  }
+}
+
+
+
+cep.addEventListener('blur', ()=>{  
+  if(document.hasFocus()){
+   console.log( getZipCode() );
+
+  }
+  setStorage('user_cep', e.target.value)
+  
+})
+
+const showAddressData = (data)=>{
+  if(data.erro){
+    errorCep.style.display = 'block'
+    errorCep.textContent = 'Cep inexistente'
+  }else{
+    errorCep.style.display = 'none'
+  }
+
+  if(data){
+    address.value = data.logradouro || ''
+    neighborhood.value = data.bairro || ''
+  }
+    
+}
+
+
+
 
 const setDisplayElement = (element, child)=>{
  return element.value.length <= 0 ? child.style.display = 'block' : child.style.display = 'none' 
@@ -98,6 +170,7 @@ const handlePhone = ()=>{
 }
 handlePhone()
 getDataUserField()
+
 
 
 const submitForm = () => {

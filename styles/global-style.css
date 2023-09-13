@@ -59,15 +59,25 @@ body h1 {
   display: flex;
   align-items: center;
   background-color: var(--color-secondary-1-4);
-  width: 10px;
+  width: .875rem;
   height: 50px;
   z-index: 9;
   color: transparent;
-  top: 350px;
+  top: 450px;
+  left: 100%;
   position: sticky;
   border-radius: 16rem;
+  overflow: hidden;
+  font-weight: 900;
+  font-size: 1.2rem;
+  text-decoration: none;
+  
+  
 }
+.float:hover{
+  animation: myfloat 1s forwards ease-in-out;
 
+}
 .float p{
   margin-left: 8px;
   text-decoration: none;
@@ -84,10 +94,10 @@ body h1 {
 
 @keyframes myfloat{
   from{
-    width: 10px;
+    width: .875rem;
   }
   to{
-    width: 230px;
+    width: max(264px);
     color: #fff;
   }
 }
@@ -96,10 +106,10 @@ body h1 {
   from{
     color: #fff;
 
-    width: 230px;
+    width: max(264px);
   }
   to{
-    width: 10px;
+    width: .875rem;
     color: transparent;
   }
 }
@@ -472,4 +482,7 @@ footer .social-media .ph:hover {
     justify-content: center;
   }
 
+  .float{
+    font-size: 1rem;
+  }
 }
