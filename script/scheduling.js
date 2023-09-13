@@ -23,23 +23,23 @@ const selectServiceFromSelectList = () => {
         removeStorageItem("typeAplication");
         removeStorageItem('value_service')
         setStorage("service", tableValues.fiberGlass.name);
-      
+
         break;
       case "acrygel":
         removeStorageItem("typeAplication");
         setStorage("service", tableValues.acrygel.name);
-      
+
         break;
 
       case "acrylic":
         removeStorageItem("typeAplication");
         setStorage("service", tableValues.acrylic.name);
-      
+
         break;
       case "porcelain":
         removeStorageItem("typeAplication");
         setStorage("service", tableValues.porcelain.name);
-      
+
         break;
     }
     location.reload()
@@ -55,12 +55,12 @@ const showServiceSelected = () => {
 };
 showServiceSelected();
 
-const getValue = ()=>{
+const getValue = () => {
 
- setStorage('value_service', getStorage('typeAplication') )
+  setStorage('value_service', getStorage('typeAplication'))
   console.log(getStorage('value_service'));
   let value = getStorage('value_service')
-  if(!value){
+  if (!value) {
     return
   }
   return value
@@ -81,7 +81,7 @@ const selectValueFromRadioButton = () => {
               "typeAplication",
               tableValues.fiberGlass.firstAplication
             );
-           
+
 
             break;
           case "Acrigel":
@@ -138,7 +138,7 @@ const selectValueFromRadioButton = () => {
             break;
         }
       }
-getValue()
+      getValue()
 
     });
   });
@@ -316,17 +316,17 @@ const calculateService = () => {
   let esmalteGel = getStorage('enameling-gel')
   let decoration = getStorage('enameling-decoration')
 
-  
 
-let totalValue = Number(value_service)+Number(esmaltSimples)+Number(esmalteGel)+Number(decoration)
-console.log(totalValue.toFixed(2));
-return totalValue.toFixed(2)
+
+  let totalValue = Number(value_service) + Number(esmaltSimples) + Number(esmalteGel) + Number(decoration)
+  console.log(totalValue.toFixed(2));
+  return totalValue.toFixed(2)
 
 };
 
 
 /**MOSTRAR RESUMO DO AGENDAMENTO */
-const summaryServiceText = `${TECHNIQUE_NAME} ${ENAMELING_SIMPLE? '+ Esmaltação simples': ''} ${ENAMELING_GEL? '+ Esmaltação em  gel' : ''} ${DECORATION?"+ Decoração": ''}`;
+const summaryServiceText = `${TECHNIQUE_NAME} ${ENAMELING_SIMPLE ? '+ Esmaltação simples' : ''} ${ENAMELING_GEL ? '+ Esmaltação em  gel' : ''} ${DECORATION ? "+ Decoração" : ''}`;
 
 const labelService = document.querySelector(".service-summary");
 const labelDate = document.querySelector(".summary-label-date");
@@ -369,37 +369,37 @@ showSummary();
 
 /**BOTÕES */
 
-
-const validateInputs = (text)=>{
-
-  if(labelService.innerHTML === '' || labelDate.innerHTML === '' || labelTime.innerHTML ==='' ){
-    phrase.style.color = 'red'
-    phrase.style.fontSize = '1.25rem'
-    phrase.innerHTML = text
-
-    paymentsGroup.forEach((item, i) => {
-      if (getStorage("payment_method") === item.value) {
-        item.checked = false;
-      }
-    });
-  }
-}
-
-const handleConfirmationScheduleButton = ()=>{
+const handleConfirmationScheduleButton = () => {
   const btn = document.querySelector('#confirm-schedule')
-  
-  btn.addEventListener('click', (e)=>{
+
+  btn.addEventListener('click', (e) => {
     e.preventDefault()
-    validateInputs('*Favor preencher todos os campos')
- 
-    phrase.style.display = 'flex'
+
+    if (labelService.innerHTML === '' || labelDate.innerHTML === '' || labelTime.innerHTML === '') {
+      phrase.style.color = 'red'
+      phrase.style.fontSize = '1.25rem'
+      phrase.style.display = 'flex'
+      phrase.innerHTML = '*Favor preencher todos os campos'
+      
+      paymentsGroup.forEach((item, i) => {
+        if (getStorage("payment_method") === item.value) {
+          item.checked = false;
+        }
+      });
+
+
+    } else if (labelService.innerHTML.length > 0 && labelDate.innerHTML.length > 0 && labelTime.innerHTML.length > 0) {
+      console.log('tudo');
+      location.assign('./thankyou.html')
+    }
+
   })
 }
 
-const handleChangeScheduleButton = ()=>{
+const handleChangeScheduleButton = () => {
   const btnChange = document.querySelector('#change-schedule')
 
-  btnChange.addEventListener('click', ()=>{
+  btnChange.addEventListener('click', () => {
     paymentsGroup.forEach((item, i) => {
       if (getStorage("payment_method") === item.value) {
         item.checked = false;
@@ -409,28 +409,28 @@ const handleChangeScheduleButton = ()=>{
     summary.style.display = 'none'
 
   })
-  
+
 }
 
-const handleCancelScheduleButton = ()=>{
+const handleCancelScheduleButton = () => {
   const btnCancel = document.querySelector('#cancel-schedule')
   const confirmModal = document.querySelector('.confirm-cancellation')
 
   const yesbtn = document.querySelector('#yes')
   const notbtn = document.querySelector('#not')
 
-  btnCancel.addEventListener('click', ()=>{
-    confirmModal.style.display = 'flex'   
+  btnCancel.addEventListener('click', () => {
+    confirmModal.style.display = 'flex'
 
   })
 
-  yesbtn.addEventListener('click',()=>{
+  yesbtn.addEventListener('click', () => {
     removeAllStorage()
     alert('Agendamento cancelado com sucesso')
     location.reload()
   })
 
-  notbtn.addEventListener('click', ()=>{
+  notbtn.addEventListener('click', () => {
     confirmModal.style.display = 'none'
   })
 }

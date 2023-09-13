@@ -1,4 +1,11 @@
-let isLogged = 0
+import { USER_EMAIL, USER_NAME, USER_NEIGHBORHOOD, USER_PASSWORD, removeAllStorage } from "./script/storagemodel.js"
+
+let isLogged = Boolean(USER_EMAIL) && Boolean(USER_PASSWORD)
+
+const userName = document.querySelector('.profile-name')
+const userNeighborhood  = document.querySelector('.profile_neighborhood ')
+const logout = document.querySelector('.logout')
+
 
 const setStyleByEvent = (component, event, child, propStyle) => {
   component.addEventListener(event, () => {
@@ -43,6 +50,8 @@ const showContentProfileMenu = ()=>{
   if(isLogged){
     loggedUser.style.display = 'block'
     unloggedUser.style.display = 'none'
+    userName.textContent = USER_NAME
+    userNeighborhood.textContent += USER_NEIGHBORHOOD
   }else{
     loggedUser.style.display = 'none'
     unloggedUser.style.display = 'block'
@@ -57,6 +66,14 @@ const redirectLogin = ()=>{
 }
 actionMenuProfile()
 redirectLogin()
+
+const handleLogout = ()=>{
+  logout.addEventListener('click', ()=>{
+    removeAllStorage()
+    location.reload()
+  })
+}
+handleLogout()
 
 /**Link flutuante */
 const showFloatingLink =()=>{

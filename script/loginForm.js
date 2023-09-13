@@ -1,3 +1,5 @@
+import {USER_EMAIL, USER_NAME, USER_PASSWORD} from './storagemodel.js'
+
 const email = document.querySelector('#email')
 const password = document.querySelector('#password')
 const confirmationMessage = document.querySelector('.confirmation')
@@ -19,8 +21,16 @@ const submitForm = () => {
     validatePassword()
     validateEmail()
 
-    if( email.value.length > 0 && password.value.length > 0 ){
+    if( email.value === USER_EMAIL && password.value === USER_PASSWORD ){
       confirmationMessage.style.display = 'flex'
+      setTimeout(()=>{
+        window.location.assign('/')
+      },800)
+      
+    }else if(email.value !== USER_EMAIL || password.value !== USER_PASSWORD) {
+      confirmationMessage.style.display='flex'
+      confirmationMessage.style.color= 'red'
+      confirmationMessage.textContent = 'Email ou senha inválidos'
     }
   })
 }

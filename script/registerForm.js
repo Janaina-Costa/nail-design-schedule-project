@@ -1,8 +1,10 @@
+import {setStorage} from './storagemodel.js'
 
 const completeName = document.querySelector('#name')
 const email = document.querySelector('#email')
 const phone = document.querySelector('#phone')
 const password = document.querySelector('#password')
+const cep = document.querySelector('#cep')
 const address = document.querySelector('#address')
 const neighborhood = document.querySelector('#neighborhood')
 const confirmationMessage = document.querySelector('.confirmation')
@@ -11,41 +13,81 @@ const errorName = document.querySelector('.error-name')
 const btn = document.querySelector('.btn-register')
 const errorMail = document.querySelector('.error-mail')
 const errorPass = document.querySelector('.error-pass')
+const errorCep = document.querySelector('.error-cep')
 const errorAddress = document.querySelector('.error-address')
 const errorNeighborhood = document.querySelector('.error-neighborhood')
 const errorPhone = document.querySelector('.error-phone')
 
+const setDisplayElement = (element, child)=>{
+ return element.value.length <= 0 ? child.style.display = 'block' : child.style.display = 'none' 
+}
+
 const validateName = () => {
-  completeName.value.length <= 0 ? errorName.style.display = 'block' : errorName.style.display = 'none' 
+  setDisplayElement(completeName, errorName)
 }
 const validateEmail = () => {
-  email.value.length <= 0 ? errorMail.style.display = 'block' : errorMail.style.display = 'none'
+  setDisplayElement(email, errorMail)
+  
 }
 
 const validatePhone = () => {
-  phone.value.length <= 0 ? errorPhone.style.display = 'block' : errorPhone.style.display = 'none'
+  setDisplayElement(phone, errorPhone)
 }
 
 const validatePassword = () => {
-  password.value.length <= 0 ? errorPass.style.display = 'block' : errorPass.style.display = 'none'
+  setDisplayElement(password, errorPass)
 }
+
+const validateCep = ()=>{
+  setDisplayElement(cep, errorCep)
+}
+
 const validateAddress = () => {
-  address.value.length <= 0 ? errorAddress.style.display = 'block' : errorAddress.style.display = 'none'
+  setDisplayElement(address, errorAddress)
 }
 
 const validateNeighborhood = () => {
-  neighborhood.value.length <= 0 ? errorNeighborhood.style.display = 'block' : errorNeighborhood.style.display = 'none'
+  setDisplayElement(neighborhood, errorNeighborhood)
 }
 
 const getDataUserField = ()=>{
   completeName.addEventListener('blur', (e)=>{ 
-    localStorage.setItem('user_name', e.target.value)
+    setStorage('user_name', e.target.value)
+  })
+  email.addEventListener('blur', (e)=>{
+    setStorage('user_mail', e.target.value)
   })
 
-  email.addEventListener('blur', (e)=>{
-    localStorage.setItem('user_password', e.target.value)
+  password.addEventListener('blur', (e)=>{
+    setStorage('user_password', e.target.value)
+  })
+
+  cep.addEventListener('blur', (e)=>{
+    setStorage('user_cep', e.target.value)
+  })
+  neighborhood.addEventListener('blur', (e)=>{
+    setStorage('user_neighborhood', e.target.value)
   })
 }
+const phoneMask = (value)=>{
+  if(!value){
+    return ''
+  }
+  value = value.replace(/\D/g,'')
+  value = value.replace(/(\d{2})(\d)/,"($1) $2")
+  value = value.replace(/(\d)(\d{4})$/,"$1-$2")
+  return value
+}
+
+const handlePhone = ()=>{
+  phone.addEventListener('keyup',(e)=>{
+    let value = e.target.value
+    value = phoneMask(value)
+    phone.value = value
+   
+  })
+}
+handlePhone()
 getDataUserField()
 
 
@@ -59,14 +101,22 @@ const submitForm = () => {
     validatePassword()
     validateNeighborhood()
     validateAddress()
+    validateCep()
 
   
-    if(completeName.value.length > 0 && email.value.length > 0 && phone.value.length > 0 && password.value.length > 0 && confirmPassword.value.length > 0  ){
-      console.log('art');
+    if(completeName.value.length > 0 && email.value.length > 0 && phone.value.length > 0 && password.value.length > 0 &&  address.value.length > 0 && neighborhood.value.length > 0 && cep.value.length >0 ){
+      
       confirmationMessage.style.display = 'flex'
+      window.location.assign('./login.html')
       
     }
 
   })
 }
 submitForm()
+
+
+/**persistir dados no fomulario */
+/**** */
+/**máscara de telefone */
+

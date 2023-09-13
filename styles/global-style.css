@@ -122,21 +122,21 @@ body h1 {
 .tooltip::after {
   content: '';
   position: absolute;
-  top: 25%;
-  left: 0%;
+  bottom: 100%;
+  left: 50%;
   margin-left: -8px;
   width: 0;
   height: 0;
-  border-right: 8px solid #000000b0;
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent  ;
+  border-bottom: 8px solid #000000b0;
 }
 
 .parent:hover .tooltip {
   visibility: visible;
   opacity: 0.9;
-  top: 0px;
-  right: 60px;
+  top: 24px;
+  left: 110px;
   z-index: 999;
 }
 
@@ -294,6 +294,16 @@ i.ph-user-circle {
 .menu-profile a{
   text-decoration: none;
   color: inherit;
+}
+.content-neighborhood{
+  display:flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: .5rem;
+  font-size: 1.25rem;
+}
+.content-neighborhood p{
+  margin: 0;
 }
 .content-menu-profile .neighborhood {
   display: flex;

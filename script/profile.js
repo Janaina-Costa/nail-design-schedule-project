@@ -1,13 +1,6 @@
-const btnToDelete = document.querySelector('.ph-trash')
+import { DATE_SCHEDULE, TIME_SCHEDULE } from "./storagemodel.js"
 
-const row = document.querySelectorAll('tbody tr')
+const date = document.querySelector('.current-schedule-date')
 
-row.forEach((item ,i)=>{
-  item.addEventListener('click', (e)=>{
-    let linha = item
-
-    btnToDelete.addEventListener('click', (e)=>{
-      linha.style.display = 'none'
-    })
-  })
-})
+date.textContent = `${DATE_SCHEDULE } | ${TIME_SCHEDULE} `
+h

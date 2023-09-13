@@ -15,22 +15,12 @@
   <div class="container">
     <!--inicio menu suspenso para mobile -->
     <nav class="dropdown-menu">
-      <div>
-        <button class="close-button"><i class="ph ph-x"></i></button>
-      </div>
+      <div><button class="close-button"><i class="ph ph-x"></i></button></div>
       <ul class="menu-list">
-        <li class="menu-link">
-          <span class=""> <a href="/">Home</a> </span>
-        </li>
-        <li class="menu-link">
-          <span> <a href="./scheduling.html">Agenda</a> </span>
-        </li>
-        <li class="menu-link">
-          <span> <a href="./services.html">Serviços</a> </span>
-        </li>
-        <li class="menu-link">
-          <span> <a href="./about.html">Sobre</a> </span>
-        </li>
+        <li class="menu-link"><span class=""> <a href="/">Home</a> </span></li>
+        <li class="menu-link"><span> <a href="./scheduling.html">Agenda</a> </span> </li>
+        <li class="menu-link"><span> <a href="./services.html">Serviços</a> </span> </li>
+        <li class="menu-link"><span> <a href="./about.html">Sobre</a> </span> </li>
       </ul>
     </nav>
     <!--fim menu suspenso para mobile -->
@@ -49,43 +39,26 @@
             <li class="menu-list-mobile"><i class="ph ph-list"></i></li>
           </ul>
         </nav>
-        <!--inicio menu suspenso para mobile -->
-        <nav class="dropdown-menu">
-          <span><button class="close-button"><i class="ph ph-x"></i></button></span>
-          <ul class="menu-list">
-            <li class="menu-link">
-              <span class=""> <a href="/">Home</a> </span>
-            </li>
-            <li class="menu-link">
-              <span> <a href="./scheduling.html">Agenda</a> </span>
-            </li>
-            <li class="menu-link">
-              <span> <a href="./services.html">Serviços</a> </span>
-            </li>
-            <li class="menu-link">
-              <span> <a href="./about.html">Sobre</a> </span>
-            </li>
-          </ul>
-        </nav>
-        <!--fim menu suspenso para mobile -->
+       
       </div>
       <!-- Menu do usuário -->
       <div class="wrapper-menu-profile">
-        <div class="btn-close">
-          <button class="close"><i class="ph ph-x"></i></button>
-        </div>
+        <div class="btn-close"><button class="close"><i class="ph ph-x"></i></button></div>
         <div class="logged content-menu-profile">
-          <p class="name menu-profile">Fulana de tal</p>
-          <p class="neighborhood menu-profile">
+          <p class="name menu-profile profile-name">Fulana de tal</p>
+
+          <div class="content-neighborhood ">
+            <p class="profile_neighborhood menu-profile">
+              Lua
+            </p>
             <i class="ph-fill ph-map-pin"></i>
-            Lua
-          </p>
-          <p class="link-profile menu-profile">
-            <a href="./profile.html"> Meu perfil</a>
-          </p>
+          </div>
+
+          <p class="link-profile menu-profile"><a href="./profile.html"> Meu perfil</a></p>
         </div>
         <div class="unlogged content-menu-profile">
-          <p class="logi-in menu-profile">Faça seu login ou Cadastre-se</p>
+          <p class="logi-in menu-profile">Faça seu <a href="./login.html">login</a> ou <a
+              href="./register.html">Cadastre-se</a></p>
         </div>
       </div>
       <!--Fim Menu do usuário -->
@@ -259,7 +232,7 @@
       </div>
     </footer>
   </div>
-  <script src="index.js"></script>
+  <script src="index.js" type="module"></script>
   <script src="./script/scheduling.js" type="module"></script>
 </body>
 

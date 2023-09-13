@@ -20,6 +20,11 @@ const DATE_SCHEDULE = getStorage('schedule-date')
 const PAYMENT_METHOD = getStorage('payment_method')
 const SERVICE_VALUE = getStorage('typeAplication')
 
+const USER_NAME =   getStorage('user_name')
+const USER_EMAIL = getStorage('user_mail')
+const USER_PASSWORD =  getStorage('user_password') 
+const  USER_NEIGHBORHOOD = getStorage('user_neighborhood')
+
 
 
 
@@ -35,5 +40,9 @@ export  {
   DATE_SCHEDULE,
   DECORATION,
   ENAMELING_GEL ,
-  ENAMELING_SIMPLE
+  ENAMELING_SIMPLE,
+  USER_NAME,
+  USER_PASSWORD,
+  USER_EMAIL,
+  USER_NEIGHBORHOOD,
 };

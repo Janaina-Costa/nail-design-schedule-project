@@ -13,17 +13,17 @@
 
 <body>
   <div class="container">
-       <!--inicio menu suspenso para mobile -->
-       <nav class="dropdown-menu">
-        <div><button class="close-button"><i class="ph ph-x"></i></button></div>
-        <ul class="menu-list">
-          <li class="menu-link"><span class=""> <a href="/">Home</a> </span></li>
-          <li class="menu-link"><span> <a href="./scheduling.html">Agenda</a> </span> </li>
-          <li class="menu-link"><span> <a href="./services.html">Serviços</a> </span> </li>
-          <li class="menu-link"><span> <a href="./about.html">Sobre</a> </span> </li>
-        </ul>
-      </nav>
-      <!--fim menu suspenso para mobile -->
+    <!--inicio menu suspenso para mobile -->
+    <nav class="dropdown-menu">
+      <div><button class="close-button"><i class="ph ph-x"></i></button></div>
+      <ul class="menu-list">
+        <li class="menu-link"><span class=""> <a href="/">Home</a> </span></li>
+        <li class="menu-link"><span> <a href="./scheduling.html">Agenda</a> </span> </li>
+        <li class="menu-link"><span> <a href="./services.html">Serviços</a> </span> </li>
+        <li class="menu-link"><span> <a href="./about.html">Sobre</a> </span> </li>
+      </ul>
+    </nav>
+    <!--fim menu suspenso para mobile -->
     <header class="layout-header">
       <div class="layout-wrapper">
         <div class="logo">
@@ -57,15 +57,20 @@
       <div class="wrapper-menu-profile">
         <div class="btn-close"><button class="close"><i class="ph ph-x"></i></button></div>
         <div class="logged content-menu-profile">
-          <p class="name menu-profile">Fulana de tal</p>
-          <p class="neighborhood menu-profile">
+          <p class="name menu-profile profile-name">Fulana de tal</p>
+
+          <div class="content-neighborhood ">
+            <p class="profile_neighborhood menu-profile">
+              Lua
+            </p>
             <i class="ph-fill ph-map-pin"></i>
-            Lua
-          </p>
+          </div>
+
           <p class="link-profile menu-profile"><a href="./profile.html"> Meu perfil</a></p>
         </div>
         <div class="unlogged content-menu-profile">
-          <p class="logi-in menu-profile">Faça seu <a href="./login.html">login</a> ou <a href="./register.html">Cadastre-se</a></p>         
+          <p class="logi-in menu-profile">Faça seu <a href="./login.html">login</a> ou <a
+              href="./register.html">Cadastre-se</a></p>
         </div>
       </div>
       <!--Fim Menu do usuário -->
@@ -77,14 +82,14 @@
           <section>
             <div class="profile-image">
               <img src="https://cdn-icons-png.flaticon.com/512/6522/6522516.png" alt="Imagem do perfil">
-              <p><a href="">Alterar imagem do perfil</a></p>
+              <p><a href="/register.html">Alterar imagem do perfil</a></p>
             </div>
-            
+
             <div class="list-links">
               <ul>
-                <li><a href="">Alterar senha</a></li>
-                <li><a href="">Alterar meus dados cadastrais</a></li>
-                <li><a href="">Detalhes do meu agendamento</a></li>
+
+                <li><a href="/register.html">Alterar meus dados cadastrais</a></li>
+                <li><a href="./scheduling.html">Alterar meu agendamento</a></li>
               </ul>
             </div>
           </section>
@@ -100,28 +105,29 @@
                 <tr class="t-subtitles">
                   <th class="t-data">Data</th>
                   <th class="t-status">Status</th>
-                 
+
                 </tr>
               </thead>
-              <tbody >
+              <tbody>
                 <tr class="t-data">
-                  <td>xx/xx/xx </td>
-                  <td class="parent"><i class="ph-fill ph-calendar-check "></i> <span class="tooltip">Agendado</span></td>
-                  
+                  <td class="current-schedule-date">xx/xx/xx </td>
+                  <td class="parent"><i class="ph-fill ph-calendar-check "></i> <span class="tooltip">Agendado</span>
+                  </td>
+
                 </tr>
 
                 <tr class="t-data">
-                  <td>xx/xx/xx </td>
+                  <td class="date">01/07/23 <span class="hour">| 16:30</span> </td>
                   <td class="parent"><i class="ph-fill ph-calendar-x"></i><span class="tooltip">Cancelado</span></td>
-                  
+
                 </tr>
 
                 <tr class="t-data">
-                  <td>xx/xx/xx </td>
-                  <td  class="parent"><i class="ph-fill ph-check-circle"></i> <span class="tooltip">Concluído</span></td>
-                  
+                  <td class="date">01/06/23 <span class="hour">| 17:00</span> </td>
+                  <td class="parent"><i class="ph-fill ph-check-circle"></i> <span class="tooltip">Concluído</span></td>
+
                 </tr>
-              
+
               </tbody>
             </table>
           </section>
@@ -142,8 +148,8 @@
       </div>
     </footer>
   </div>
-  <script src="index.js"></script>
-  <script src="./script/profile.js"></script>
+  <script src="index.js" type="module"></script>
+  <script src="./script/profile.js" type="module"></script>
 </body>
 
 </html>
