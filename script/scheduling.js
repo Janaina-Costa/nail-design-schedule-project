@@ -56,20 +56,16 @@ const selectValueFromRadioButton = async () => {
   const radios = document.getElementsByName("radio-service");
   const data = await getServicesByApi()
 
-
   radios.forEach((radio) => {
     radio.addEventListener("change", () => {
 
       data.forEach((item, i) => {
-
         for (let value of item.values) {
-
           const key = Object.keys(value);
           const val = Object.values(value)
 
           key.find((keyObject, indexKey) => {
             if (keyObject === radio.value) {
-
               if (item.name === TECHNIQUE_NAME) {
                 if (radio.value === 'firstApplication') {
                   val.find((valueObject, indexValue) => {
@@ -92,50 +88,45 @@ const selectValueFromRadioButton = async () => {
                 );
               }
             }
-
           })
-
         }
-
       })
-
-
     });
   });
 };
 selectValueFromRadioButton();
 /**------------------------------------------ */
-/****PAREI AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII */
 
 /**SELEÇÃO DO CAMPO DE CHECK - SERVIÇO */
 
-const selectValuesFromCheckbox = () => {
+const selectValuesFromCheckbox = async () => {
+  const data = await getServicesByApi()
   const check = document.querySelectorAll(".check-service");
 
-  check.forEach((item, i) => {
-    item.addEventListener("click", () => {
-      if (item.value === "simple") {
-        setStorage("enameling-simple", tableValues.enameling.simple);
-
-        if (!item.checked) {
-          removeStorageItem("enameling-simple");
+  check.forEach((check) => {
+    check.addEventListener("click", () => {
+      data.forEach(item => {
+        if (item.id === 5) {
+          for (let value of item.values) {
+            const key = Object.keys(value)
+            const val = Object.values(value)
+          
+            key.find((keyObject, indexKey) => {
+              if (keyObject === check.value) {
+                val.find((valueObject, indexValue) => {
+                  if (indexKey == indexValue) {
+                    setStorage(`enameling-${check.value}`, valueObject)
+                  }
+                  if (!check.checked) {
+                    removeStorageItem(`enameling-${check.value}`)
+                  }
+                })
+              }
+            })
+          }
         }
-      } else if (item.value === "gel") {
-        setStorage("enameling-gel", tableValues.enameling.gel);
-
-        if (!item.checked) {
-          removeStorageItem("enameling-gel");
-        }
-      } else if (item.value === "decoration") {
-        setStorage(
-          "enameling-decoration",
-          tableValues.enameling.decoration
-        );
-
-        if (!item.checked) {
-          removeStorageItem("enameling-decoration");
-        }
-      }
+      })
+      
     });
   });
 };
