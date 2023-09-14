@@ -1,4 +1,4 @@
-import {setStorage} from './storagemodel.js'
+import { setStorage } from './storagemodel.js'
 
 
 const completeName = document.querySelector('#name')
@@ -9,9 +9,10 @@ const cep = document.querySelector('#cep')
 const address = document.querySelector('#address')
 const neighborhood = document.querySelector('#neighborhood')
 const confirmationMessage = document.querySelector('.confirmation')
-
-const errorName = document.querySelector('.error-name')
 const btn = document.querySelector('.btn-register')
+
+const errorMessage = document.querySelector('.error-message')
+const errorName = document.querySelector('.error-name')
 const errorMail = document.querySelector('.error-mail')
 const errorPass = document.querySelector('.error-pass')
 const errorCep = document.querySelector('.error-cep')
@@ -19,79 +20,101 @@ const errorAddress = document.querySelector('.error-address')
 const errorNeighborhood = document.querySelector('.error-neighborhood')
 const errorPhone = document.querySelector('.error-phone')
 
-const zipCodeMask = (value)=>{
-  if (!value) return ""
-  value = value.replace(/\D/g,'')
-  value = value.replace(/(\d{5})(\d)/,'$1-$2')
+const phoneMask = (value) => {
+  if (!value) {
+    return ''
+  }
+  value = value.replace(/\D/g, '')
+  value = value.replace(/(\d{2})(\d)/, "($1) $2")
+  value = value.replace(/(\d)(\d{4})$/, "$1-$2")
   return value
 }
 
-const handleZipCode = ()=>{
-  cep.addEventListener('keyup',(e)=>{
+const handlePhone = () => {
+  phone.addEventListener('keyup', (e) => {
+    let value = e.target.value
+    value = phoneMask(value)
+    phone.value = value
+
+  })
+}
+handlePhone()
+
+const zipCodeMask = (value) => {
+  if (!value) return ""
+  value = value.replace(/\D/g, '')
+  value = value.replace(/(\d{5})(\d)/, '$1-$2')
+  return value
+}
+
+const handleZipCode = () => {
+  cep.addEventListener('keyup', (e) => {
     let value = e.target.value
     value = zipCodeMask(value)
     cep.value = value
-   
+
   })
 }
 handleZipCode()
 
-const getZipCode = async()=>{
+const getZipCode = async () => {
   let zip = document.querySelector('#cep').value
   zip = zip.replace('-', '')
-  
+
   const url = `https://viacep.com.br/ws/${zip}/json/`
-  if(zip.length !==8){
-    alert('Cep inválido')
+  if (zip.length !== 8) {
+    errorCep.style.display = 'block'
+    errorCep.textContent = 'Cep inválido'
+    cep.focus()
     return
   }
-  try{
+  try {
     const response = await fetch(url)
     const data = await response.json()
-    if(!data){
+    if (!data) {
       return
     }
-    
+
     showAddressData(data)
-    console.log({data});
+    console.log({ data });
     return data
 
-  }catch(e){
-   console.log(e);
+  } catch (e) {
+    console.log(e);
   }
 }
 
 
 
-cep.addEventListener('blur', ()=>{  
-  if(document.hasFocus()){
-   console.log( getZipCode() );
+cep.addEventListener('blur', () => {
+  if (document.hasFocus()) {
+    console.log(getZipCode());
 
   }
   setStorage('user_cep', e.target.value)
-  
+
 })
 
-const showAddressData = (data)=>{
-  if(data.erro){
+const showAddressData = (data) => {
+  if (data.erro) {
     errorCep.style.display = 'block'
     errorCep.textContent = 'Cep inexistente'
-  }else{
+  } else {
     errorCep.style.display = 'none'
   }
 
-  if(data){
+  if (data) {
     address.value = data.logradouro || ''
     neighborhood.value = data.bairro || ''
   }
-    
+
 }
 
 
 
 
-const setDisplayElement = (element, child)=>{
- return element.value.length <= 0 ? child.style.display = 'block' : child.style.display = 'none' 
+const setDisplayElement = (element, child) => {
+  return element.value.length <= 0 ? child.style.display = 'block' : child.style.display = 'none'
 }
 
 const validateName = () => {
@@ -99,7 +122,7 @@ const validateName = () => {
 }
 const validateEmail = () => {
   setDisplayElement(email, errorMail)
-  
+
 }
 
 const validatePhone = () => {
@@ -110,7 +133,7 @@ const validatePassword = () => {
   setDisplayElement(password, errorPass)
 }
 
-const validateCep = ()=>{
+const validateCep = () => {
   setDisplayElement(cep, errorCep)
 }
 
@@ -122,53 +145,68 @@ const validateNeighborhood = () => {
   setDisplayElement(neighborhood, errorNeighborhood)
 }
 
-const getDataUserField = ()=>{
-  completeName.addEventListener('blur', (e)=>{ 
-    setStorage('user_name', e.target.value)
-  })
-  email.addEventListener('blur', (e)=>{
-    setStorage('user_mail', e.target.value)
-  })
-
-  password.addEventListener('blur', (e)=>{
-    setStorage('user_password', e.target.value)
+const getDataUserField = () => {
+  completeName.addEventListener('blur', (e) => {
+    validateName()
+    if (completeName.value.length > 0) {
+      setStorage('user_name', e.target.value)
+    }
   })
 
-  cep.addEventListener('blur', (e)=>{
+  phone.addEventListener('blur', (e) => {
+    validatePhone()
+    if (phone.value.length > 0) {
+      setStorage('user_phone', e.target.value)
+    }
+  })
+  
+  function ValidarEmail (email) {
+    var emailPattern =  /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
+     return emailPattern.test(email); 
+  }
+
+
+  email.addEventListener('blur', (e) => {
+    const isValidEmail = ValidarEmail(email.value)
+        
+    if(email.value.length > 0 && isValidEmail===false){
+      errorMail.style.display='block'
+      errorMail.textContent = 'Email inválido'
+    }
+    if (email.value.length > 0 && isValidEmail === true) {
+      setStorage('user_mail', e.target.value)
+    }
+      errorMail.style.display='block'
+     
+  })
+
+  cep.addEventListener('blur', (e) => {
     setStorage('user_cep', e.target.value)
   })
 
-  neighborhood.addEventListener('blur', (e)=>{
-    setStorage('user_neighborhood', e.target.value)
+  password.addEventListener('blur', (e) => {
+    if (password.value.length > 0) {
+      setStorage('user_password', e.target.value)
+    }
+    validatePassword()
   })
 
-  address.addEventListener('blur', (e)=>{
-    setStorage('user_address', e.target.value)
+
+  neighborhood.addEventListener('blur', (e) => {
+    if (neighborhood.value.length > 0) {
+      setStorage('user_neighborhood', e.target.value)
+    }
+    validateNeighborhood()
   })
 
-  phone.addEventListener('user_phone', (e)=>{
-    setStorage('user_phone', e.target.value)
+  address.addEventListener('blur', (e) => {
+    if (address.value.length > 0) {
+      setStorage('user_address', e.target.value)
+    }
+    validateAddress()
   })
-}
-const phoneMask = (value)=>{
-  if(!value){
-    return ''
-  }
-  value = value.replace(/\D/g,'')
-  value = value.replace(/(\d{2})(\d)/,"($1) $2")
-  value = value.replace(/(\d)(\d{4})$/,"$1-$2")
-  return value
 }
 
-const handlePhone = ()=>{
-  phone.addEventListener('keyup',(e)=>{
-    let value = e.target.value
-    value = phoneMask(value)
-    phone.value = value
-   
-  })
-}
-handlePhone()
 getDataUserField()
 
 
@@ -185,12 +223,12 @@ const submitForm = () => {
     validateAddress()
     validateCep()
 
-  
-    if(completeName.value.length > 0 && email.value.length > 0 && phone.value.length > 0 && password.value.length > 0 &&  address.value.length > 0 && neighborhood.value.length > 0 && cep.value.length >0 ){
-      
+
+    if (completeName.value.length > 0 && email.value.length > 0 && phone.value.length > 0 && password.value.length > 0 && address.value.length > 0 && neighborhood.value.length > 0 && cep.value.length > 0) {
+
       confirmationMessage.style.display = 'flex'
       window.location.assign('./login.html')
-      
+
     }
 
   })
