@@ -1,4 +1,3 @@
-import tableValues from "./tablePrice.js";
 import {
   DATE_SCHEDULE,
   PAYMENT_METHOD,
@@ -182,7 +181,7 @@ persistsCheckedField();
 const formatDate = () => {
   const data = new Date();
 
-  let mounth = data.toLocaleDateString("pt-BR", {
+  let month = data.toLocaleDateString("pt-BR", {
     month: "2-digit",
   });
 
@@ -190,7 +189,7 @@ const formatDate = () => {
     day: "2-digit",
   });
 
-  const today = `${data.getFullYear()}-${mounth}-${day}`;
+  const today = `${data.getFullYear()}-${month}-${day}`;
   return today;
 };
 
