@@ -13,42 +13,36 @@ import {
   removeAllStorage,
 } from "./storagemodel.js";
 
+
+const url = 'http://localhost:3000/services/'
+const getServicesByApi = async () => {
+  const response = await fetch(url)
+  const data = await response.json()
+  return data
+}
+
+
 /**SELEÇÃO DO SERVIÇO PELA LISTA */
-const selectServiceFromSelectList = () => {
+const selectServiceFromSelectList = async () => {
   const list = document.querySelector("#services-list");
+  const data = await getServicesByApi()
 
   list.addEventListener("change", () => {
-    switch (list.value) {
-      case "fiberGlass":
+    data.find(item => {
+      if (item.type === list.value) {
         removeStorageItem("typeAplication");
         removeStorageItem('value_service')
-        setStorage("service", tableValues.fiberGlass.name);
+        setStorage("service", item.name);
+      }
+    })
 
-        break;
-      case "acrygel":
-        removeStorageItem("typeAplication");
-        setStorage("service", tableValues.acrygel.name);
-
-        break;
-
-      case "acrylic":
-        removeStorageItem("typeAplication");
-        setStorage("service", tableValues.acrylic.name);
-
-        break;
-      case "porcelain":
-        removeStorageItem("typeAplication");
-        setStorage("service", tableValues.porcelain.name);
-
-        break;
-    }
     location.reload()
   });
 };
-
-/**SELEÇÃO DO SERVIÇO PELA LISTA */
 selectServiceFromSelectList()
-selectServiceFromSelectList();
+
+/***************************************************************/
+
 
 const showServiceSelected = () => {
   const selectedTech = document.querySelector(".selected-technique");
@@ -56,95 +50,62 @@ const showServiceSelected = () => {
 };
 showServiceSelected();
 
-const getValue = () => {
 
-  setStorage('value_service', getStorage('typeAplication'))
-  let value = getStorage('value_service')
-  if (!value) {
-    return
-  }
-  return value
-}
 
-/**SELEÇÃO DO CAMPO DE RADIO - SERVIÇO */
-
-const selectValueFromRadioButton = () => {
+const selectValueFromRadioButton = async () => {
   const radios = document.getElementsByName("radio-service");
+  const data = await getServicesByApi()
+
 
   radios.forEach((radio) => {
     radio.addEventListener("change", () => {
-      if (radio.value === "firstAplication") {
-        removeStorageItem("maintenance");
-        switch (TECHNIQUE_NAME) {
-          case "Fibra de Vidro":
-            setStorage(
-              "typeAplication",
-              tableValues.fiberGlass.firstAplication
-            );
 
+      data.forEach((item, i) => {
 
-            break;
-          case "Acrigel":
-            setStorage(
-              "typeAplication",
-              tableValues.acrygel.firstAplication
-            );
+        for (let value of item.values) {
 
-            break;
-          case "Acrílico":
-            setStorage(
-              "typeAplication",
-              tableValues.acrylic.firstAplication
-            );
+          const key = Object.keys(value);
+          const val = Object.values(value)
 
-            break;
+          key.find((keyObject, indexKey) => {
+            if (keyObject === radio.value) {
 
-          case "Porcelana":
-            setStorage(
-              "typeAplication",
-              tableValues.porcelain.firstAplication
-            );
-            break;
+              if (item.name === TECHNIQUE_NAME) {
+                if (radio.value === 'firstApplication') {
+                  val.find((valueObject, indexValue) => {
+                    if (indexKey === indexValue) {
+                      setStorage('value_service', valueObject)
+                    }
+                  })
+                }
+
+                if (radio.value === 'maintenance') {
+                  val.find((valueObject, indexValue) => {
+                    if (indexKey === indexValue) {
+                      setStorage('value_service', valueObject)
+                    }
+                  })
+                }
+                setStorage(
+                  "typeApplication",
+                  keyObject
+                );
+              }
+            }
+
+          })
+
         }
-      } else if (radio.value === "maintenance") {
-        removeStorageItem("firstAplication");
 
-        switch (TECHNIQUE_NAME) {
-          case "Fibra de Vidro":
-            setStorage(
-              "typeAplication",
-              tableValues.fiberGlass.maintenance
-            );
+      })
 
-            break;
-          case "Acrigel":
-            setStorage("maintenance", tableValues.acrygel.maintenance);
-
-            break;
-          case "Acrílico":
-            setStorage(
-              "typeAplication",
-              tableValues.acrylic.maintenance
-            );
-
-            break;
-
-          case "Porcelana":
-            setStorage(
-              "typeAplication",
-              tableValues.porcelain.maintenance
-            );
-
-            break;
-        }
-      }
-      getValue()
 
     });
   });
 };
 selectValueFromRadioButton();
 /**------------------------------------------ */
+/****PAREI AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII */
 
 /**SELEÇÃO DO CAMPO DE CHECK - SERVIÇO */
 
@@ -372,7 +333,7 @@ const handleConfirmationScheduleButton = () => {
       phrase.style.fontSize = '1.25rem'
       phrase.style.display = 'flex'
       phrase.innerHTML = '*Favor preencher todos os campos'
-      
+
       paymentsGroup.forEach((item, i) => {
         if (getStorage("payment_method") === item.value) {
           item.checked = false;

@@ -1,0 +1,56 @@
+{
+  "services": [
+    {
+      "id":1,
+        "type": "fiberGlass",
+        "name":"Fibra de Vidro",
+        "values":[
+          {"firstApplication": 110,
+          "maintenance": 90}
+
+        ]
+      },
+      {
+        "id":2,
+          "type": "acrygel",
+          "name":"Acrigel",
+          "values":[
+            {"firstApplication": 100,
+            "maintenance": 85}
+  
+          ]
+        },
+        {
+          "id":3,
+            "type": "acrylic",
+            "name":"Acrílico",
+            "values":[
+              {"firstApplication": 130,
+              "maintenance": 110}
+    
+            ]
+          },
+          {
+            "id":4,
+              "type": "porcelain",
+              "name":"Porcelana",
+              "values":[
+                {"firstApplication": 160,
+                "maintenance": 120}
+      
+              ]
+            },
+            {
+              "id":5,
+                "type": "enameling",
+                "values":[
+                  {"simple": 20,
+                  "gel": 35,
+                  "decoration": 30
+      }
+                ]
+              }
+    
+   
+  ]
+}
