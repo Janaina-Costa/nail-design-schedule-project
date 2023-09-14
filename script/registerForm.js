@@ -145,11 +145,29 @@ const validateNeighborhood = () => {
   setDisplayElement(neighborhood, errorNeighborhood)
 }
 
+
+function completeNameValidate(completeName){
+  const namePattern = /[A-z]{2}[ ][A-z]{2}/;
+  return namePattern.test(completeName)
+
+}
+
 const getDataUserField = () => {
   completeName.addEventListener('blur', (e) => {
-    validateName()
-    if (completeName.value.length > 0) {
+    const isValidCompleteName = completeNameValidate(completeName.value)
+    
+    if(completeName.value.length>0 && !isValidCompleteName){
+      errorName.style.display = 'block'
+      errorName.textContent = 'Favor informar nome e sobrenome'
+    }else{
+      errorName.style.display = 'none'
+    }
+
+    if (completeName.value.length > 0 && isValidCompleteName) {
       setStorage('user_name', e.target.value)
+      errorName.style.display = 'none'
+    }else{
+      errorName.style.display = 'block'
     }
   })
 
@@ -160,23 +178,30 @@ const getDataUserField = () => {
     }
   })
   
-  function ValidarEmail (email) {
+  function emailValidade (email) {
     var emailPattern =  /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
      return emailPattern.test(email); 
   }
 
 
   email.addEventListener('blur', (e) => {
-    const isValidEmail = ValidarEmail(email.value)
+    const isValidEmail = emailValidade(email.value)
         
     if(email.value.length > 0 && isValidEmail===false){
       errorMail.style.display='block'
       errorMail.textContent = 'Email inválido'
+    }else{
+      errorMail.style.display='none'
+
     }
     if (email.value.length > 0 && isValidEmail === true) {
       setStorage('user_mail', e.target.value)
-    }
+      errorMail.style.display='none'
+
+    }else{
+
       errorMail.style.display='block'
+    }
      
   })
 
@@ -185,10 +210,15 @@ const getDataUserField = () => {
   })
 
   password.addEventListener('blur', (e) => {
-    if (password.value.length > 0) {
+    if(password.value.length === 0){
+      validatePassword()
+    }else if (password.value.length > 0 && password.value.length <8 ) {
+      errorPass.style.display = 'block'
+      errorPass.textContent = 'A senha deve conter no mínimo 8 caracteres'
+    }else{
       setStorage('user_password', e.target.value)
-    }
-    validatePassword()
+      validatePassword()
+    }    
   })
 
 
