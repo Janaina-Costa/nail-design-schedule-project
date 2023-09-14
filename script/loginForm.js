@@ -1,4 +1,5 @@
 import {USER_EMAIL, USER_NAME, USER_PASSWORD} from './storagemodel.js'
+import emailValidate from './utils/emailValidate.js'
 
 const email = document.querySelector('#email')
 const password = document.querySelector('#password')
@@ -8,18 +9,48 @@ const errorMail = document.querySelector('.error-mail')
 const errorPass = document.querySelector('.error-pass')
 
 
-const validateEmail = () => {
-  email.value.length <= 0 ? errorMail.style.display = 'block' : errorMail.style.display = 'none'
+const emailValidation = () => {
+  email.addEventListener('blur', ()=>{ 
+    const isValidEmail = emailValidate(email.value)
+        
+    if(email.value.length > 0 && !isValidEmail){
+      errorMail.style.display='block'
+      errorMail.textContent = 'Email inválido'
+    }else{
+      errorMail.style.display='none'
+    }
+    if (email.value.length > 0 && isValidEmail === true) {
+      setStorage('user_mail', e.target.value)
+      errorMail.style.display='none'
+    }else{
+      errorMail.style.display='block'
+    }
+  })
 }
-const validatePassword = ()=>{
-  password.value.length <=0 ? errorPass.style.display = 'block' : errorPass.style.display = 'none'
+emailValidation()
+
+const passwordValidation = ()=>{
+  password.addEventListener('blur', (e) => {
+    if(password.value.length === 0){
+      errorPass.style.display = 'block'
+
+    }else if (password.value.length > 0 && password.value.length <8 ) {
+      errorPass.style.display = 'block'
+      errorPass.textContent = 'A senha deve conter no mínimo 8 caracteres'
+    }else{
+      
+      errorPass.style.display = 'none'
+
+    }    
+  })
 }
+passwordValidation()
 
 const submitForm = () => {
   btn.addEventListener('click', (e) => {
     e.preventDefault()
-    validatePassword()
-    validateEmail()
+   
+    
 
     if( email.value === USER_EMAIL && password.value === USER_PASSWORD ){
       confirmationMessage.style.display = 'flex'
