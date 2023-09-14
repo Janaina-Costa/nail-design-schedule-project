@@ -1,4 +1,5 @@
 import { setStorage } from './storagemodel.js'
+import emailValidate from './utils/emailValidate.js'
 
 
 const completeName = document.querySelector('#name')
@@ -19,6 +20,12 @@ const errorCep = document.querySelector('.error-cep')
 const errorAddress = document.querySelector('.error-address')
 const errorNeighborhood = document.querySelector('.error-neighborhood')
 const errorPhone = document.querySelector('.error-phone')
+
+
+
+const setDisplayElement = (element, child) => {
+  return element.value.length <= 0 ? child.style.display = 'block' : child.style.display = 'none'
+}
 
 const phoneMask = (value) => {
   if (!value) {
@@ -110,13 +117,6 @@ const showAddressData = (data) => {
 
 }
 
-
-
-
-const setDisplayElement = (element, child) => {
-  return element.value.length <= 0 ? child.style.display = 'block' : child.style.display = 'none'
-}
-
 const validateName = () => {
   setDisplayElement(completeName, errorName)
 }
@@ -177,15 +177,11 @@ const getDataUserField = () => {
       setStorage('user_phone', e.target.value)
     }
   })
-  
-  function emailValidade (email) {
-    var emailPattern =  /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
-     return emailPattern.test(email); 
-  }
+ 
 
 
   email.addEventListener('blur', (e) => {
-    const isValidEmail = emailValidade(email.value)
+    const isValidEmail = emailValidate(email.value)
         
     if(email.value.length > 0 && isValidEmail===false){
       errorMail.style.display='block'
