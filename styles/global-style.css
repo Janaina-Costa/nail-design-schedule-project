@@ -71,6 +71,7 @@ body h1 {
   font-weight: 900;
   font-size: 1.2rem;
   text-decoration: none;
+  cursor: pointer;
   
   
 }
@@ -81,7 +82,7 @@ body h1 {
 .float p{
   margin-left: 8px;
   text-decoration: none;
-  cursor: pointer;
+
   
 }
 .open-float{  
@@ -97,7 +98,7 @@ body h1 {
     width: .875rem;
   }
   to{
-    width: max(264px);
+    width: max(20rem);
     color: #fff;
   }
 }
@@ -106,7 +107,7 @@ body h1 {
   from{
     color: #fff;
 
-    width: max(264px);
+    width:max(20rem);
   }
   to{
     width: .875rem;

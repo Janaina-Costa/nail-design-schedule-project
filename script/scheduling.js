@@ -9,7 +9,9 @@ import {
   ENAMELING_SIMPLE,
   ENAMELING_GEL,
   DECORATION,
-  removeAllStorage,
+  isLogged,
+  TYPE_SERVICE,
+  VALUE_SERVICE,
 } from "./storagemodel.js";
 
 
@@ -20,6 +22,33 @@ const getServicesByApi = async () => {
   return data
 }
 
+/***Exibição de float e tabela de preço */
+const float = document.querySelector('.table-prices-float')
+const tablePrice = document.querySelector('.t-price')
+
+const handleFloatButton = () => {
+  float.addEventListener('click', () => {
+    tablePrice.style.display = 'flex'
+    float.style.display = 'none'
+  })
+
+}
+handleFloatButton()
+
+const handleTableServicePrice = () => {
+  const closeTablePrice = document.querySelector('.close-table-price')
+  closeTablePrice.addEventListener('click', () => {
+    tablePrice.style.display = 'none'
+    float.style.display = 'flex'
+
+  })
+
+}
+
+handleTableServicePrice()
+
+/***********************************/
+
 
 /**SELEÇÃO DO SERVIÇO PELA LISTA */
 const selectServiceFromSelectList = async () => {
@@ -29,7 +58,7 @@ const selectServiceFromSelectList = async () => {
   list.addEventListener("change", () => {
     data.find(item => {
       if (item.type === list.value) {
-        removeStorageItem("typeAplication");
+        removeStorageItem("typeApplication");
         removeStorageItem('value_service')
         setStorage("service", item.name);
       }
@@ -71,6 +100,7 @@ const selectValueFromRadioButton = async () => {
                     if (indexKey === indexValue) {
                       setStorage('value_service', valueObject)
                     }
+
                   })
                 }
 
@@ -78,7 +108,9 @@ const selectValueFromRadioButton = async () => {
                   val.find((valueObject, indexValue) => {
                     if (indexKey === indexValue) {
                       setStorage('value_service', valueObject)
+
                     }
+
                   })
                 }
                 setStorage(
@@ -109,15 +141,19 @@ const selectValuesFromCheckbox = async () => {
           for (let value of item.values) {
             const key = Object.keys(value)
             const val = Object.values(value)
-          
+
             key.find((keyObject, indexKey) => {
               if (keyObject === check.value) {
                 val.find((valueObject, indexValue) => {
                   if (indexKey == indexValue) {
                     setStorage(`enameling-${check.value}`, valueObject)
+                    location.reload()
+
                   }
                   if (!check.checked) {
                     removeStorageItem(`enameling-${check.value}`)
+                    location.reload()
+
                   }
                 })
               }
@@ -125,7 +161,8 @@ const selectValuesFromCheckbox = async () => {
           }
         }
       })
-      
+
+
     });
   });
 };
@@ -139,15 +176,16 @@ const persistsCheckedField = () => {
   const check = document.querySelectorAll(".check-service");
   const paymentsGroup = document.getElementsByName("pay-method");
 
-  if (Boolean(getStorage("firstAplication"))) {
+  if (TYPE_SERVICE === 'firstApplication') {
     radios.forEach((item) => {
-      if (getStorage("firstAplication") === item.value) {
+      if (TYPE_SERVICE === item.value) {
         item.checked = true;
       }
     });
-    if (Boolean(getStorage("maintenance"))) {
+    if (TYPE_SERVICE === 'maintenance'){
       radios.forEach((item) => {
-        if (getStorage("maintenance") === item.value) {
+        
+        if (TYPE_SERVICE === item.value) {
           item.checked = true;
         }
       });
@@ -217,6 +255,8 @@ const setCalendarDate = () => {
 
   date.addEventListener("change", () => {
     setStorage("schedule-date", date.value);
+    location.reload()
+
   });
 };
 
@@ -228,6 +268,8 @@ const setCalendarTime = () => {
   time.setAttribute("min", now);
   time.addEventListener("change", () => {
     setStorage("schedule-time", time.value);
+    location.reload()
+
   });
 };
 
@@ -312,26 +354,29 @@ showSummary();
 
 /**BOTÕES */
 
+
+
 const handleConfirmationScheduleButton = () => {
   const btn = document.querySelector('#confirm-schedule')
+  phrase.style.color = 'red'
+  phrase.style.fontSize = '1.25rem'
+  phrase.style.display = 'flex'
 
   btn.addEventListener('click', (e) => {
     e.preventDefault()
 
-    if (labelService.innerHTML === '' || labelDate.innerHTML === '' || labelTime.innerHTML === '') {
-      phrase.style.color = 'red'
-      phrase.style.fontSize = '1.25rem'
-      phrase.style.display = 'flex'
+    if (!isLogged) {
+      phrase.innerHTML = '*Faça seu login ou registre-se para finalizar o agendamento'
+      return
+    }
+
+    if (Boolean(!TECHNIQUE_NAME) || Boolean(!VALUE_SERVICE) || Boolean(!DATE_SCHEDULE) || Boolean(!TIME_SCHEDULE) || Boolean(!PAYMENT_METHOD) || (Boolean(!ENAMELING_SIMPLE) && Boolean(!ENAMELING_GEL) && Boolean(!DECORATION))) {
       phrase.innerHTML = '*Favor preencher todos os campos'
 
-      paymentsGroup.forEach((item, i) => {
-        if (getStorage("payment_method") === item.value) {
-          item.checked = false;
-        }
-      });
 
-    } else if (labelService.innerHTML.length > 0 && labelDate.innerHTML.length > 0 && labelTime.innerHTML.length > 0) {
+    } else {
       location.assign('./thankyou.html')
+      phrase.style.display = 'none'
     }
 
   })
@@ -348,6 +393,7 @@ const handleChangeScheduleButton = () => {
     });
     removeStorageItem('payment_method')
     summary.style.display = 'none'
+    location.reload()
 
   })
 
@@ -366,9 +412,20 @@ const handleCancelScheduleButton = () => {
   })
 
   yesbtn.addEventListener('click', () => {
-    removeAllStorage()
-    alert('Agendamento cancelado com sucesso')
-    location.reload()
+    removeStorageItem('service')
+    removeStorageItem('value_service')
+    removeStorageItem('typeApplication')
+    removeStorageItem('enameling-simple')
+    removeStorageItem('enameling-gel')
+    removeStorageItem('enameling-decoration')
+    removeStorageItem('schedule-date')
+    removeStorageItem('schedule-time')
+    removeStorageItem('payment_method')
+
+
+    phrase.textContent = 'Agendamento cancelado com sucesso'
+
+    setTimeout(() => { location.reload() }, 2000)
   })
 
   notbtn.addEventListener('click', () => {

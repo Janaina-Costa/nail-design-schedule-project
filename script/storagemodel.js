@@ -18,7 +18,8 @@ const DECORATION = getStorage('enameling-decoration')
 const TIME_SCHEDULE = getStorage('schedule-time')
 const DATE_SCHEDULE = getStorage('schedule-date')
 const PAYMENT_METHOD = getStorage('payment_method')
-const SERVICE_VALUE = getStorage('typeAplication')
+const TYPE_SERVICE = getStorage('typeApplication')
+const VALUE_SERVICE = getStorage('value_service')
 
 const USER_NAME =   getStorage('user_name')
 const USER_EMAIL = getStorage('user_mail')
@@ -28,6 +29,8 @@ const USER_CEP = getStorage('user_cep')
 const USER_ADDRESS = getStorage('user_address')
 const USER_PHONE =  getStorage('user_phone')
 
+let isLogged = Boolean(USER_EMAIL) && Boolean(USER_PASSWORD)
+
 export  {
   setStorage,
   getStorage,
@@ -35,7 +38,8 @@ export  {
   removeAllStorage,
   TECHNIQUE_NAME,
   PAYMENT_METHOD,
-  SERVICE_VALUE,
+  TYPE_SERVICE,
+  VALUE_SERVICE,
   TIME_SCHEDULE,
   DATE_SCHEDULE,
   DECORATION,
@@ -47,5 +51,6 @@ export  {
   USER_NEIGHBORHOOD,
   USER_ADDRESS,
   USER_CEP,
-  USER_PHONE
+  USER_PHONE,
+  isLogged
 };

@@ -39,23 +39,23 @@
             <li class="menu-list-mobile"><i class="ph ph-list"></i></li>
           </ul>
         </nav>
-       
+
       </div>
-       <!-- Menu do usuário -->
-       <div class="wrapper-menu-profile">
+      <!-- Menu do usuário -->
+      <div class="wrapper-menu-profile">
         <div class="btn-close"><button class="close"><i class="ph ph-x"></i></button></div>
         <div class="logged content-menu-profile">
           <p class="name menu-profile profile-name">Fulana de tal</p>
 
           <div class="content-neighborhood ">
             <p class="profile_neighborhood menu-profile">
-               
+
             </p>
             <i class="ph-fill ph-map-pin"></i>
           </div>
 
           <p class="link-profile menu-profile"><a href="./profile.html"> Meu perfil</a></p>
-          <p class="link-profile menu-profile logout">  Logout</p>
+          <p class="link-profile menu-profile logout"> Logout</p>
         </div>
         <div class="unlogged content-menu-profile">
           <p class="logi-in menu-profile">Faça seu <a href="./login.html">login</a> ou <a
@@ -65,17 +65,92 @@
       <!--Fim Menu do usuário -->
     </header>
     <div class="wrapper">
-      <a class="table-prices float" href="">
+      <div class="table-prices-float float" >
         <p>Tabela de preços</p>
-      </a>
+      </div>
       <main class="main-content">
         <div class="title">
           <h1>Bora agendar!!!</h1>
         </div>
-        
+        <section class="t-price">
+          <table class="t-main">
+            <thead>
+              <tr>
+                <th class="t-title" colspan="3">
+                  <div class="content-title">
+                    <h2>Tabela de preços</h2>
+                  <button class="close-table-price"><i class="ph ph-x"></i></button>
+                  </div>
+                </th>
+              </tr>
+              <tr class="t-subtitles">
+                <th class="t-service">Serviço</th>
+                <th class="t-status">Valor (R$)</th>
+    
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="t-service">
+                <td class="service fiberGlass">Fibra de vidro - Primeira aplicação </td>
+                <td class=" service-fiberGlass-firstApplication">110,00
+                </td>
+              </tr>
+              <tr class="t-service">
+                <td class="service">Fibra de vidro - manutenção </td>
+                <td class="service-fiberGlass-maintenance">90,00</td>
+              </tr>
+    
+              <tr class="t-service">
+                <td class="service">Acrigel - Primeira aplicação </td>
+                <td class="service-acrygel-firstApplication">110,00
+                </td>
+              </tr>
+              <tr class="t-service">
+                <td class="service">Acrigel - manutenção </td>
+                <td class="service-acrygel-maintenance">85,00</td>
+              </tr>
+    
+              <tr class="t-service">
+                <td class="service">Acrílico - Primeira aplicação </td>
+                <td class="service-acrylic-firstApplication">130,00
+                </td>
+              </tr>
+              <tr class="t-service">
+                <td class="service">Acrílico - manutenção </td>
+                <td class="service-acrylic-maintenance">110,00</td>
+              </tr>
+    
+              <tr class="t-service">
+                <td class="service">Porcelana - Primeira aplicação </td>
+                <td class="service-porcelain-firstApplication">160,00
+                </td>
+              </tr>
+              <tr class="t-service">
+                <td class="service">Porcelana - manutenção </td>
+                <td class="service-porcelain-maintenance">120,00</td>
+              </tr>
+              <tr class="t-service">
+                <td class="service">Esmaltação simples </td>
+                <td class="service-enameling-simple">20,00</td>
+              </tr>
+              <tr class="t-service">
+                <td class="service">Esmaltação gel </td>
+                <td class="service-enameling-gel">30,00</td>
+              </tr>
+              <tr class="t-service">
+                <td class="service">Decoração </td>
+                <td class="service-enameling-decoration">30,00</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr><td class="t-footer" colspan="3"> </td></tr>
+            </tfoot>
+          </table>
+        </section>
+
         <section class="select-container">
           <div class="select-content">
-            <select name="" class="" id="services-list">
+            <select name="" class="" id="services-list" >
               <option value="" id="teste">Selecione a técnica</option>
               <option value="fiberGlass" id="">Fibra de Vidro</option>
               <option value="acrygel" id="">Acrigel</option>
@@ -87,7 +162,7 @@
             <div class="content-service">
               <p>
                 Serviço selecionado:
-                <span class="selected-technique">Acrigel</span>
+                <span class="selected-technique"></span>
               </p>
               <p>Marque a(s) opção(ões) desejada(s)</p>
               <div class="checkbox-services">
@@ -119,7 +194,7 @@
             </div>
           </div>
           <div class="content-calendar">
-            <p>Selecione a data e horário da sua preferência:</p>
+            <p>Selecione a service e horário da sua preferência:</p>
 
             <div class="calendar">
               <div class="calendar-content calendar-date">
@@ -183,11 +258,7 @@
                   <p class="label-title">Método de pagamento:</p>
                   <p class="payment-method-summary date-summary">Pix</p>
                 </div>
-                <div class="confirmation-phrase">
-                  <p>Agendamento realizado com sucesso
-                    <i class="ph-fill ph-check-square"></i>
-                  </p>
-                </div>
+                
               </div>
             </div>
           </div>
@@ -201,10 +272,14 @@
                 </button>
               </div>
             </div>
+            <div class="confirmation-phrase">
+              <p></p>
+            </div>
             <div class="content-button">
               <button id="confirm-schedule">Agendar</button>
               <button id="change-schedule">Alterar agendamento*</button>
               <button id="cancel-schedule">Cancelar agendamento*</button>
+              
               <div class="content-notice">
                 <p class="notice">
                   * Alteração de agendamento deve ser feito com no mínimo 48h de

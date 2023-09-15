@@ -1,6 +1,6 @@
-import { USER_EMAIL, USER_NAME, USER_NEIGHBORHOOD, USER_PASSWORD, removeAllStorage } from "./script/storagemodel.js"
+import {  USER_NAME, USER_NEIGHBORHOOD, removeAllStorage, isLogged } from "./script/storagemodel.js"
 
-let isLogged = Boolean(USER_EMAIL) && Boolean(USER_PASSWORD)
+
 
 const userName = document.querySelector('.profile-name')
 const userNeighborhood  = document.querySelector('.profile_neighborhood ')
@@ -78,7 +78,7 @@ handleLogout()
 /**Link flutuante */
 const showFloatingLink =()=>{
   const itemFloat = document.querySelector('.float')
-  const linkFloat = document.querySelector('.float p')
+  const linkFloat = document.querySelector('.float-schedule')
   document.addEventListener('scroll',()=>{
     let position = window.pageYOffset
     if(position > 0){
@@ -89,7 +89,8 @@ const showFloatingLink =()=>{
     }
   })
   
-  linkFloat.addEventListener('click', ()=>{
+  linkFloat.addEventListener('click', (e)=>{
+    e.preventDefault()
     window.location.assign('http://127.0.0.1:5500/scheduling.html')
   })
 
@@ -101,4 +102,3 @@ const showFloatingLink =()=>{
 
 }
 showFloatingLink()
-
