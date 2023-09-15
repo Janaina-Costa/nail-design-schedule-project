@@ -17,7 +17,7 @@ Atividade do curso de Desenvolvimento Full Stack - ITalents [https://italents.co
 - Figma
 
 ##  🔧 Instruções para rodar o projeto
-Para ter acesso aos dados dos serviços prestados é necessário rodar a api como o comando :
+Para ter acesso aos dados dos serviços prestados é necessário rodar a api com o comando :
  - json-server --watch db.json
 
 
