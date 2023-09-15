@@ -1,5 +1,7 @@
 <h1 align= 'center'>Nail Design Schedule</h1 >
 
+<img src='./assets/NailDesigne.png' />
+
 ## 💻 Projeto
 
 
