@@ -99,6 +99,7 @@ const selectValueFromRadioButton = async () => {
                   val.find((valueObject, indexValue) => {
                     if (indexKey === indexValue) {
                       setStorage('value_service', valueObject)
+                      location.reload()
                     }
 
                   })
@@ -108,7 +109,7 @@ const selectValueFromRadioButton = async () => {
                   val.find((valueObject, indexValue) => {
                     if (indexKey === indexValue) {
                       setStorage('value_service', valueObject)
-
+                      location.reload()
                     }
 
                   })
@@ -181,15 +182,16 @@ const persistsCheckedField = () => {
       if (TYPE_SERVICE === item.value) {
         item.checked = true;
       }
+    })
+    
+  }
+  if (TYPE_SERVICE === 'maintenance'){
+    radios.forEach((item) => {
+      
+      if (TYPE_SERVICE === item.value) {
+        item.checked = true;
+      }
     });
-    if (TYPE_SERVICE === 'maintenance'){
-      radios.forEach((item) => {
-        
-        if (TYPE_SERVICE === item.value) {
-          item.checked = true;
-        }
-      });
-    }
   }
 
   if (Boolean(getStorage("enameling-simple"))) {
@@ -372,13 +374,10 @@ const handleConfirmationScheduleButton = () => {
 
     if (Boolean(!TECHNIQUE_NAME) || Boolean(!VALUE_SERVICE) || Boolean(!DATE_SCHEDULE) || Boolean(!TIME_SCHEDULE) || Boolean(!PAYMENT_METHOD) || (Boolean(!ENAMELING_SIMPLE) && Boolean(!ENAMELING_GEL) && Boolean(!DECORATION))) {
       phrase.innerHTML = '*Favor preencher todos os campos'
-
-
     } else {
       location.assign('./thankyou.html')
       phrase.style.display = 'none'
     }
-
   })
 }
 
