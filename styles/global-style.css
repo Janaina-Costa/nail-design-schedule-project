@@ -256,17 +256,16 @@ a {
 }
 .menu-profile-img{
   border-radius: 100%;
-  width: 6rem;
-  height: 6rem;
-  border: inset 2px var(--color-secondary-1-0);
   object-fit: cover;
   
 }
 #profile-image{
-  width: 6rem;
-  height: 6rem;
+  width: 5rem;
+  height: 5rem;
   border-radius: 100%;
-  border: inset 2px var(--color-secondary-1-0);
+  border: solid 2px var(--color-secondary-1-0);
+  object-fit: cover;
+
 }
 .menu .menu-list-mobile {
   font-size: 28px;

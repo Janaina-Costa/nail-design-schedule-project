@@ -1,10 +1,11 @@
-import {  USER_NAME, USER_NEIGHBORHOOD, removeAllStorage, isLogged } from "./script/storagemodel.js"
+import {  USER_NAME, USER_NEIGHBORHOOD, removeAllStorage,  USER_IMAGE, USER_LOGGED, removeStorageItem } from "./script/storagemodel.js"
 
 
 
 const userName = document.querySelector('.profile-name')
 const userNeighborhood  = document.querySelector('.profile_neighborhood ')
 const logout = document.querySelector('.logout')
+const profileImage = document.querySelector('#profile-image')
 
 
 const setStyleByEvent = (component, event, child, propStyle) => {
@@ -13,7 +14,7 @@ const setStyleByEvent = (component, event, child, propStyle) => {
   })
 }
 
-const applicationContainer = document.querySelector('.container')
+
 
 /*menu mobile */
 
@@ -47,7 +48,7 @@ const showContentProfileMenu = ()=>{
   const loggedUser = document.querySelector('.logged')
   const unloggedUser = document.querySelector('.unlogged')
 
-  if(isLogged){
+  if(USER_LOGGED){
     loggedUser.style.display = 'block'
     unloggedUser.style.display = 'none'
     userName.textContent = USER_NAME
@@ -57,6 +58,15 @@ const showContentProfileMenu = ()=>{
     unloggedUser.style.display = 'block'
   }
 }
+const showImageProfile = ()=>{
+  if(USER_LOGGED){
+    profileImage.src = USER_IMAGE
+  }else{
+    profileImage.src = './assets/profile.png'
+    
+  }
+}
+showImageProfile()
 
 const redirectLogin = ()=>{
   const loginLink = document.querySelector('.logi-in')
@@ -69,7 +79,7 @@ redirectLogin()
 
 const handleLogout = ()=>{
   logout.addEventListener('click', ()=>{
-    removeAllStorage()
+    removeStorageItem('isLogged')
     location.reload()
   })
 }

@@ -246,7 +246,6 @@ const getImageToProfile = () => {
     let reader = new FileReader()
     reader.onload = function () {
       profileImage.src = reader.result
-      console.log(profileImage.src);
      setStorage('img-profile', profileImage.src)
     }
     reader.readAsDataURL(e.target.files[0])
