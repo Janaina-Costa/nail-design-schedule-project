@@ -9,9 +9,10 @@ import {
   ENAMELING_SIMPLE,
   ENAMELING_GEL,
   DECORATION,
-  isLogged,
+ 
   TYPE_SERVICE,
   VALUE_SERVICE,
+  USER_LOGGED,
 } from "./storagemodel.js";
 
 
@@ -367,8 +368,8 @@ const handleConfirmationScheduleButton = () => {
   btn.addEventListener('click', (e) => {
     e.preventDefault()
 
-    if (!isLogged) {
-      phrase.innerHTML = '*Faça seu login ou registre-se para finalizar o agendamento'
+    if (!USER_LOGGED) {
+      phrase.innerHTML = '*Faça seu <a href="./login.html"> login </a> ou <a href="./register.html"> cadastre-se </a> para finalizar o agendamento'
       return
     }
 

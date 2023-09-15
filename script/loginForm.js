@@ -1,4 +1,4 @@
-import {USER_EMAIL, USER_NAME, USER_PASSWORD} from './storagemodel.js'
+import {setStorage, USER_EMAIL, USER_PASSWORD} from './storagemodel.js'
 import emailValidate from './utils/emailValidate.js'
 
 const email = document.querySelector('#email')
@@ -51,11 +51,16 @@ const submitForm = () => {
     e.preventDefault()
    
     
-
     if( email.value === USER_EMAIL && password.value === USER_PASSWORD ){
       confirmationMessage.style.display = 'flex'
+      setStorage('isLogged', 'true')
       setTimeout(()=>{
-        window.location.assign('/')
+        if(document.referrer == 'http://127.0.0.1:5500/scheduling.html'){
+          window.location.href = 'http://127.0.0.1:5500/scheduling.html'
+        }else{
+          window.location.href = '/'
+
+        }
       },800)
       
     }else if(email.value !== USER_EMAIL || password.value !== USER_PASSWORD) {

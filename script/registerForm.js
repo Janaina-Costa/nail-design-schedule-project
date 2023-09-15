@@ -1,4 +1,4 @@
-import { setStorage } from './storagemodel.js'
+import { setStorage, USER_ADDRESS, USER_CEP, USER_EMAIL, USER_IMAGE, USER_NAME, USER_NEIGHBORHOOD, USER_PASSWORD, USER_PHONE } from './storagemodel.js'
 import emailValidate from './utils/emailValidate.js'
 
 
@@ -11,6 +11,8 @@ const address = document.querySelector('#address')
 const neighborhood = document.querySelector('#neighborhood')
 const confirmationMessage = document.querySelector('.confirmation')
 const btn = document.querySelector('.btn-register')
+const profileImageInput = document.querySelector('#profile-image-input')
+const profileImage = document.querySelector('#profile-image')
 
 const errorMessage = document.querySelector('.error-message')
 const errorName = document.querySelector('.error-name')
@@ -146,7 +148,7 @@ const validateNeighborhood = () => {
 }
 
 
-function completeNameValidate(completeName){
+function completeNameValidate(completeName) {
   const namePattern = /[A-z]{2}[ ][A-z]{2}/;
   return namePattern.test(completeName)
 
@@ -155,18 +157,18 @@ function completeNameValidate(completeName){
 const getDataUserField = () => {
   completeName.addEventListener('blur', (e) => {
     const isValidCompleteName = completeNameValidate(completeName.value)
-    
-    if(completeName.value.length>0 && !isValidCompleteName){
+
+    if (completeName.value.length > 0 && !isValidCompleteName) {
       errorName.style.display = 'block'
       errorName.textContent = 'Favor informar nome e sobrenome'
-    }else{
+    } else {
       errorName.style.display = 'none'
     }
 
     if (completeName.value.length > 0 && isValidCompleteName) {
       setStorage('user_name', e.target.value)
       errorName.style.display = 'none'
-    }else{
+    } else {
       errorName.style.display = 'block'
     }
   })
@@ -177,28 +179,28 @@ const getDataUserField = () => {
       setStorage('user_phone', e.target.value)
     }
   })
- 
+
 
 
   email.addEventListener('blur', (e) => {
     const isValidEmail = emailValidate(email.value)
-        
-    if(email.value.length > 0 && isValidEmail===false){
-      errorMail.style.display='block'
+
+    if (email.value.length > 0 && isValidEmail === false) {
+      errorMail.style.display = 'block'
       errorMail.textContent = 'Email inválido'
-    }else{
-      errorMail.style.display='none'
+    } else {
+      errorMail.style.display = 'none'
 
     }
     if (email.value.length > 0 && isValidEmail === true) {
       setStorage('user_mail', e.target.value)
-      errorMail.style.display='none'
+      errorMail.style.display = 'none'
 
-    }else{
+    } else {
 
-      errorMail.style.display='block'
+      errorMail.style.display = 'block'
     }
-     
+
   })
 
   cep.addEventListener('blur', (e) => {
@@ -206,15 +208,15 @@ const getDataUserField = () => {
   })
 
   password.addEventListener('blur', (e) => {
-    if(password.value.length === 0){
+    if (password.value.length === 0) {
       validatePassword()
-    }else if (password.value.length > 0 && password.value.length <8 ) {
+    } else if (password.value.length > 0 && password.value.length < 8) {
       errorPass.style.display = 'block'
       errorPass.textContent = 'A senha deve conter no mínimo 8 caracteres'
-    }else{
+    } else {
       setStorage('user_password', e.target.value)
       validatePassword()
-    }    
+    }
   })
 
 
@@ -235,7 +237,36 @@ const getDataUserField = () => {
 
 getDataUserField()
 
+/***Imagem do perfil */
+const getImageToProfile = () => {
+  profileImageInput.addEventListener('change', (e) => {
+    if (!(e.target && e.target.files && e.target.files.length > 0)) {
+      return
+    }
+    let reader = new FileReader()
+    reader.onload = function () {
+      profileImage.src = reader.result
+      console.log(profileImage.src);
+     setStorage('img-profile', profileImage.src)
+    }
+    reader.readAsDataURL(e.target.files[0])
 
+  })
+}
+getImageToProfile()
+
+const persistData = ()=>{
+  if((Boolean(USER_NAME)&& Boolean(USER_PHONE) && Boolean(USER_CEP) && Boolean(USER_ADDRESS) && Boolean(USER_NEIGHBORHOOD) && Boolean(USER_EMAIL) && Boolean(USER_PASSWORD) && Boolean(USER_IMAGE))){
+    completeName.value = USER_NAME
+    phone.value = USER_PHONE
+    cep.value = USER_CEP
+    address.value = USER_ADDRESS
+    neighborhood.value = USER_NEIGHBORHOOD
+    email.value = USER_EMAIL
+    password.value = USER_PASSWORD
+  }
+}
+persistData()
 
 const submitForm = () => {
   btn.addEventListener('click', (e) => {

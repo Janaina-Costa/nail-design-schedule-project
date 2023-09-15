@@ -28,8 +28,10 @@ const USER_NEIGHBORHOOD = getStorage('user_neighborhood')
 const USER_CEP = getStorage('user_cep')
 const USER_ADDRESS = getStorage('user_address')
 const USER_PHONE =  getStorage('user_phone')
+const USER_IMAGE = getStorage('img-profile')
 
-let isLogged = Boolean(USER_EMAIL) && Boolean(USER_PASSWORD)
+const USER_LOGGED = getStorage('isLogged')
+
 
 export  {
   setStorage,
@@ -52,5 +54,6 @@ export  {
   USER_ADDRESS,
   USER_CEP,
   USER_PHONE,
-  isLogged
+  USER_IMAGE,
+  USER_LOGGED
 };

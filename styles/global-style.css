@@ -254,13 +254,20 @@ a {
   opacity: 0.8;
   color: var(--color-secondary-1-4);
 }
-
-i.ph-user-circle {
-  font-size: 3rem;
-  color: #ffff;
-  padding: 0.25rem;
+.menu-profile-img{
+  border-radius: 100%;
+  width: 6rem;
+  height: 6rem;
+  border: inset 2px var(--color-secondary-1-0);
+  object-fit: cover;
+  
 }
-
+#profile-image{
+  width: 6rem;
+  height: 6rem;
+  border-radius: 100%;
+  border: inset 2px var(--color-secondary-1-0);
+}
 .menu .menu-list-mobile {
   font-size: 28px;
   display: none;
@@ -274,8 +281,8 @@ i.ph-user-circle {
   position: absolute;
   right: 1rem;
   background-color: #ffffff;
-  opacity: .9;
-  top: 5.5rem;
+  opacity: .95;
+  top: 9rem;
   padding: 0 1rem;
   border-radius: .5rem;
   display: none;
@@ -289,6 +296,7 @@ i.ph-user-circle {
   margin-top: .25rem;
 }
 .wrapper-menu-profile .btn-close .close{
+  z-index: 999;
   display: flex;
   align-items: center;
   background-color: transparent;
@@ -444,13 +452,13 @@ footer .social-media .ph {
   border-radius: 100%;
   border: 4px solid transparent;
   text-align: center;
-  transition: background-color 1s ease-in-out;
+  transition:all .5s ease-in-out;
 }
 
 footer .social-media .ph:hover {
-  opacity: 0.8;
-  color: var(--color-secondary-1-4);
-  border-color: var(--color-complement-4);
+ 
+  box-shadow: 2px 1px 10px 2px rgba(0,0,0,0.75);
+  transform: scale(1.2);
 }
 
 
