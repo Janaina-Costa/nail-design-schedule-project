@@ -14,7 +14,6 @@ const btn = document.querySelector('.btn-register')
 const profileImageInput = document.querySelector('#profile-image-input')
 const profileImage = document.querySelector('#profile-image')
 
-const errorMessage = document.querySelector('.error-message')
 const errorName = document.querySelector('.error-name')
 const errorMail = document.querySelector('.error-mail')
 const errorPass = document.querySelector('.error-pass')
@@ -85,7 +84,6 @@ const getZipCode = async () => {
     }
 
     showAddressData(data)
-    console.log({ data });
     return data
 
   } catch (e) {
@@ -97,8 +95,7 @@ const getZipCode = async () => {
 
 cep.addEventListener('blur', () => {
   if (document.hasFocus()) {
-    console.log(getZipCode());
-
+    getZipCode()
   }
   setStorage('user_cep', e.target.value)
 
@@ -124,7 +121,6 @@ const validateName = () => {
 }
 const validateEmail = () => {
   setDisplayElement(email, errorMail)
-
 }
 
 const validatePhone = () => {
@@ -147,11 +143,9 @@ const validateNeighborhood = () => {
   setDisplayElement(neighborhood, errorNeighborhood)
 }
 
-
 function completeNameValidate(completeName) {
   const namePattern = /[A-z]{2}[ ][A-z]{2}/;
   return namePattern.test(completeName)
-
 }
 
 const getDataUserField = () => {
@@ -179,7 +173,6 @@ const getDataUserField = () => {
       setStorage('user_phone', e.target.value)
     }
   })
-
 
 
   email.addEventListener('blur', (e) => {
@@ -246,7 +239,7 @@ const getImageToProfile = () => {
     let reader = new FileReader()
     reader.onload = function () {
       profileImage.src = reader.result
-     setStorage('img-profile', profileImage.src)
+      setStorage('img-profile', profileImage.src)
     }
     reader.readAsDataURL(e.target.files[0])
 
@@ -254,8 +247,8 @@ const getImageToProfile = () => {
 }
 getImageToProfile()
 
-const persistData = ()=>{
-  if((Boolean(USER_NAME)&& Boolean(USER_PHONE) && Boolean(USER_CEP) && Boolean(USER_ADDRESS) && Boolean(USER_NEIGHBORHOOD) && Boolean(USER_EMAIL) && Boolean(USER_PASSWORD) && Boolean(USER_IMAGE))){
+const persistData = () => {
+  if ((Boolean(USER_NAME) && Boolean(USER_PHONE) && Boolean(USER_CEP) && Boolean(USER_ADDRESS) && Boolean(USER_NEIGHBORHOOD) && Boolean(USER_EMAIL) && Boolean(USER_PASSWORD) && Boolean(USER_IMAGE))) {
     completeName.value = USER_NAME
     phone.value = USER_PHONE
     cep.value = USER_CEP
@@ -279,9 +272,7 @@ const submitForm = () => {
     validateAddress()
     validateCep()
 
-
     if (completeName.value.length > 0 && email.value.length > 0 && phone.value.length > 0 && password.value.length > 0 && address.value.length > 0 && neighborhood.value.length > 0 && cep.value.length > 0) {
-
       confirmationMessage.style.display = 'flex'
       window.location.assign('./login.html')
 

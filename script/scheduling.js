@@ -8,8 +8,7 @@ import {
   setStorage,
   ENAMELING_SIMPLE,
   ENAMELING_GEL,
-  DECORATION,
- 
+  DECORATION, 
   TYPE_SERVICE,
   VALUE_SERVICE,
   USER_LOGGED,
@@ -41,15 +40,10 @@ const handleTableServicePrice = () => {
   closeTablePrice.addEventListener('click', () => {
     tablePrice.style.display = 'none'
     float.style.display = 'flex'
-
   })
-
 }
 
 handleTableServicePrice()
-
-/***********************************/
-
 
 /**SELEÇÃO DO SERVIÇO PELA LISTA */
 const selectServiceFromSelectList = async () => {
@@ -64,14 +58,10 @@ const selectServiceFromSelectList = async () => {
         setStorage("service", item.name);
       }
     })
-
     location.reload()
   });
 };
 selectServiceFromSelectList()
-
-/***************************************************************/
-
 
 const showServiceSelected = () => {
   const selectedTech = document.querySelector(".selected-technique");
@@ -80,7 +70,7 @@ const showServiceSelected = () => {
 showServiceSelected();
 
 
-
+/***SELEÇÃO DO VALOR DO SERVIÇO */
 const selectValueFromRadioButton = async () => {
   const radios = document.getElementsByName("radio-service");
   const data = await getServicesByApi()
@@ -128,10 +118,8 @@ const selectValueFromRadioButton = async () => {
   });
 };
 selectValueFromRadioButton();
-/**------------------------------------------ */
 
 /**SELEÇÃO DO CAMPO DE CHECK - SERVIÇO */
-
 const selectValuesFromCheckbox = async () => {
   const data = await getServicesByApi()
   const check = document.querySelectorAll(".check-service");
@@ -169,10 +157,8 @@ const selectValuesFromCheckbox = async () => {
   });
 };
 selectValuesFromCheckbox();
-/**------------------------------------------ */
 
 /**PERSISTINDO SELEÇÃO DOS INPUTS */
-
 const persistsCheckedField = () => {
   const radios = document.getElementsByName("radio-service");
   const check = document.querySelectorAll(".check-service");
@@ -184,7 +170,6 @@ const persistsCheckedField = () => {
         item.checked = true;
       }
     })
-    
   }
   if (TYPE_SERVICE === 'maintenance'){
     radios.forEach((item) => {
@@ -214,8 +199,6 @@ const persistsCheckedField = () => {
   }
 };
 persistsCheckedField();
-/**------------------------------------------ */
-
 
 
 /**CALENDÁRIO */
@@ -275,11 +258,9 @@ const setCalendarTime = () => {
 
   });
 };
-
 setCalendarDate();
 setCalendarTime();
 
-/**------------------------------------------ */
 
 /**PAGAMENTO */
 const paymentsGroup = document.getElementsByName("pay-method");
@@ -303,8 +284,7 @@ const getPaymentMethod = () => {
 };
 getPaymentMethod();
 
-/**------------------------------------------ */
-
+/**CALCULO DO TOTAL DOS SERVIÇOS */
 const calculateService = () => {
   let value_service = getStorage('value_service')
   let enamelingSimple = getStorage('enameling-simple')
@@ -315,7 +295,6 @@ const calculateService = () => {
   return totalValue.toFixed(2)
 
 };
-
 
 /**MOSTRAR RESUMO DO AGENDAMENTO */
 const summaryServiceText = `${TECHNIQUE_NAME} ${ENAMELING_SIMPLE ? '+ Esmaltação simples' : ''} ${ENAMELING_GEL ? '+ Esmaltação em  gel' : ''} ${DECORATION ? "+ Decoração" : ''}`;
@@ -353,12 +332,9 @@ const showSummary = () => {
   }
 };
 showSummary();
-/**------------------------------------------ */
+
 
 /**BOTÕES */
-
-
-
 const handleConfirmationScheduleButton = () => {
   const btn = document.querySelector('#confirm-schedule')
   phrase.style.color = 'red'
@@ -367,7 +343,6 @@ const handleConfirmationScheduleButton = () => {
 
   btn.addEventListener('click', (e) => {
     e.preventDefault()
-
     if (!USER_LOGGED) {
       phrase.innerHTML = '*Faça seu <a href="./login.html"> login </a> ou <a href="./register.html"> cadastre-se </a> para finalizar o agendamento'
       return
@@ -402,16 +377,14 @@ const handleChangeScheduleButton = () => {
 const handleCancelScheduleButton = () => {
   const btnCancel = document.querySelector('#cancel-schedule')
   const confirmModal = document.querySelector('.confirm-cancellation')
-
-  const yesbtn = document.querySelector('#yes')
-  const notbtn = document.querySelector('#not')
+  const yesBtn = document.querySelector('#yes')
+  const notBtn = document.querySelector('#not')
 
   btnCancel.addEventListener('click', () => {
     confirmModal.style.display = 'flex'
-
   })
 
-  yesbtn.addEventListener('click', () => {
+  yesBtn.addEventListener('click', () => {
     removeStorageItem('service')
     removeStorageItem('value_service')
     removeStorageItem('typeApplication')
@@ -422,13 +395,11 @@ const handleCancelScheduleButton = () => {
     removeStorageItem('schedule-time')
     removeStorageItem('payment_method')
 
-
     phrase.textContent = 'Agendamento cancelado com sucesso'
-
     setTimeout(() => { location.reload() }, 2000)
   })
 
-  notbtn.addEventListener('click', () => {
+  notBtn.addEventListener('click', () => {
     confirmModal.style.display = 'none'
   })
 }

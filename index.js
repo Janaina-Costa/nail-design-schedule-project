@@ -1,6 +1,4 @@
-import {  USER_NAME, USER_NEIGHBORHOOD, removeAllStorage,  USER_IMAGE, USER_LOGGED, removeStorageItem } from "./script/storagemodel.js"
-
-
+import {  USER_NAME, USER_NEIGHBORHOOD, USER_IMAGE, USER_LOGGED, removeStorageItem } from "./script/storagemodel.js"
 
 const userName = document.querySelector('.profile-name')
 const userNeighborhood  = document.querySelector('.profile_neighborhood ')
@@ -13,8 +11,6 @@ const setStyleByEvent = (component, event, child, propStyle) => {
     child.style.display = propStyle
   })
 }
-
-
 
 /*menu mobile */
 
@@ -43,8 +39,7 @@ const actionMenuProfile = () => {
   showContentProfileMenu()
 }
 
-const showContentProfileMenu = ()=>{
- 
+const showContentProfileMenu = ()=>{ 
   const loggedUser = document.querySelector('.logged')
   const unloggedUser = document.querySelector('.unlogged')
 
@@ -63,7 +58,6 @@ const showImageProfile = ()=>{
     profileImage.src = USER_IMAGE
   }else{
     profileImage.src = './assets/profile.png'
-    
   }
 }
 showImageProfile()
@@ -92,8 +86,7 @@ const showFloatingLink =()=>{
   document.addEventListener('scroll',()=>{
     let position = window.pageYOffset
     if(position > 0){
-      itemFloat.classList.add('open-float')
-  
+      itemFloat.classList.add('open-float')  
     }else{
       itemFloat.classList.add('close-float')
     }

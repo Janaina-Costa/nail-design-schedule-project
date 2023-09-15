@@ -36,6 +36,20 @@
   max-width: 16rem;
   border-radius: 1rem;
 }
+.logout{
+  border: solid 1px var(--text-color);
+  padding: 0 8px;
+  border-radius: 8px;
+  transition: all .5s ease-in-out;
+ 
+
+}
+.logout:hover{
+ 
+  border: solid 1px var(--color-secondary-2-4);
+  transform: scale(1.2);
+  color: var(--color-secondary-2-4);
+}
 
 .list-links {
   display: flex;

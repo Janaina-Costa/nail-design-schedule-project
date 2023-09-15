@@ -72,7 +72,8 @@ const submitForm = () => {
 }
 submitForm()
 
-const showPass = document.querySelector('.eye')
+const toggleShowPassword = ()=>{
+  const showPass = document.querySelector('.eye')
 showPass.addEventListener('click', (e) => {
   const hidePassword = e.target.classList.contains('ph-eye-slash')
   e.target.classList.toggle('ph-eye-slash')
@@ -82,3 +83,6 @@ showPass.addEventListener('click', (e) => {
     password.setAttribute('type', 'text')
   }
 })
+}
+
+toggleShowPassword()
