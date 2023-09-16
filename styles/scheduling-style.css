@@ -271,6 +271,9 @@
 }
 
 .confirmation-area .content-notice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
 }
 
@@ -285,15 +288,16 @@
   display: flex;
   width: 15rem;
   flex-direction: column;
+  align-items: center;
   padding: 1rem;
   box-shadow: -3px 2px 11px 0px rgba(24, 23, 23, 0.75);
-  position: absolute;
   background-color: #ffffff;
   z-index: 9;
-  left: 18rem;
+  left: 28rem;
   bottom: 9rem;
   border-radius: 8px;
   display: none;
+  
 }
 
 .confirm-cancellation p {
@@ -304,6 +308,7 @@
 .options-buttons {
   display: flex;
   justify-content: space-evenly;
+  gap: 1rem;
 }
 
 .options-buttons button {
